@@ -20,8 +20,8 @@ $primary: #1b28a4;
 #mainNavbar {
 	.nav-link {
 		@extend .py-3;
-
 		display: inline-block;
+		color: $white;
 		// @extend .px-4;
 	}
 }
