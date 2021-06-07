@@ -6,6 +6,7 @@
 		<title>DreamScape</title>
 
 		<link rel="stylesheet" href="/static/css/theme.min.css" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/@splidejs/splide@2.4.21/dist/css/splide.min.css" />
 	</head>
 	<body>
 		<!-- Navbar -->
@@ -85,7 +86,52 @@
 
 		<!-- News Feed -->
 		<div id="newsFeed" class="py-5">
-			<div class="container">News Feed</div>
+			<div class="container">
+				<div class="splide">
+					<div class="splide__track">
+						<ul class="splide__list">
+							<li class="splide__slide">
+								<div class="row justify-content-center">
+									<div class="col-md-4 col-lg-3 order-md-2">
+										<div style="background-color: rgb(54, 54, 54); width: 100%; height: 200px"></div>
+									</div>
+									<div class="col-md-8 col-lg-6 order-md-1">
+										<h2>News Feed Title 1</h2>
+										<span class="badge bg-secondary">1 Jan, 2020</span>
+										<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus totam repellendus possimus hic aliquid praesentium, obcaecati perspiciatis. Deserunt libero, error explicabo ratione laborum, tempora nulla ipsam nobis, porro possimus quisquam!... <a href="#">[Read More]</a></p>
+									</div>
+								</div>
+							</li>
+
+							<li class="splide__slide">
+								<div class="row justify-content-center">
+									<div class="col-md-4 col-lg-3 order-md-2">
+										<div style="background-color: rgb(82, 12, 72); width: 100%; height: 200px"></div>
+									</div>
+									<div class="col-md-8 col-lg-6 order-md-1">
+										<h2>News Feed Title 2</h2>
+										<span class="badge bg-secondary">1 Jan, 2020</span>
+										<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus totam repellendus possimus hic aliquid praesentium, obcaecati perspiciatis. Deserunt libero, error explicabo ratione laborum, tempora nulla ipsam nobis, porro possimus quisquam!... <a href="#">[Read More]</a></p>
+									</div>
+								</div>
+							</li>
+
+							<li class="splide__slide">
+								<div class="row justify-content-center">
+									<div class="col-md-4 col-lg-3 order-md-2">
+										<div style="background-color: rgb(0, 58, 97); width: 100%; height: 200px"></div>
+									</div>
+									<div class="col-md-8 col-lg-6 order-md-1">
+										<h2>News Feed Title 3</h2>
+										<span class="badge bg-secondary">1 Jan, 2020</span>
+										<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus totam repellendus possimus hic aliquid praesentium, obcaecati perspiciatis. Deserunt libero, error explicabo ratione laborum, tempora nulla ipsam nobis, porro possimus quisquam!... <a href="#">[Read More]</a></p>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
 		</div>
 
 		<!-- Features -->
@@ -110,7 +156,12 @@
 			<div class="container">Footer</div>
 		</footer>
 
-		<!-- Bootstrap Scripts -->
+		<!-- Scripts -->
+		<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+		<script>
+			new Splide('.splide').mount();
+		</script>
+
 		<script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 	</body>
 </html>
