@@ -8,22 +8,23 @@
 		<link rel="stylesheet" href="/static/css/theme.min.css" />
 	</head>
 	<body>
-		<nav class="navbar navbar-expand-md navbar-dark bg-primary" id="mainNavbar">
-			<div class="container fs-5">
+		<!-- Navbar -->
+		<nav id="mainNavbar" class="navbar navbar-expand-md navbar-dark bg-primary">
+			<div class="container-lg fs-5">
 				<!-- Desktop Left Nav -->
 				<div class="collapse navbar-collapse" id="navLeft">
-					<ul class="navbar-nav mb-2 mb-lg-0">
-						<li class="nav-item">
+					<ul class="navbar-nav w-100 mb-2 mb-lg-0">
+						<li class="nav-item w-50">
 							<a class="nav-link" href="#">Home</a>
 						</li>
-						<li class="nav-item">
+						<li class="nav-item w-50">
 							<a class="nav-link" href="#">News</a>
 						</li>
 					</ul>
 				</div>
 
 				<!-- Logo -->
-				<div class="navbar-brand mx-auto">
+				<div class="navbar-brand mx-lg-auto">
 					<a href="#">
 						<div class="navbar-brand-bg">
 							<img src="/static/img/logo.svg" alt="Dreamscape Logo" />
@@ -33,11 +34,11 @@
 
 				<!-- Desktop Right Nav -->
 				<div class="collapse navbar-collapse" id="navRight">
-					<ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
-						<li class="nav-item">
+					<ul class="navbar-nav w-100 text-end mb-2 mb-lg-0 ms-auto">
+						<li class="nav-item w-50">
 							<a class="nav-link" href="#">Forum</a>
 						</li>
-						<li class="nav-item">
+						<li class="nav-item w-50">
 							<a class="nav-link" href="#">Account</a>
 						</li>
 					</ul>
@@ -68,6 +69,9 @@
 			</div>
 		</nav>
 
+		<div id="cta" class="bg-secondary py-5">test</div>
+
+		<!-- Bootstrap Scripts -->
 		<script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 	</body>
 </html>
