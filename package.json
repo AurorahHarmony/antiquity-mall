@@ -1,0 +1,23 @@
+{
+  "name": "Dreamscape-Website",
+  "version": "1.0.0",
+  "description": "Dreamscape-Website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tezdrone/Dreamscape-Website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tezdrone/Dreamscape-Website/issues"
+  },
+  "homepage": "https://github.com/tezdrone/Dreamscape-Website#readme",
+  "dependencies": {
+    "bootstrap": "^5.0.0-beta3"
+  }
+}
