@@ -102,8 +102,37 @@ $primary: #1b28a4;
 }
 
 #cta {
+	position: relative;
+
 	.get-connected {
 		margin-top: 30rem;
+		margin-bottom: 3rem;
+	}
+
+	.video-wrapper {
+		@extend .bg-dark;
+
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		object-fit: cover;
+		z-index: -100;
+		right: 0;
+		bottom: 0;
+		overflow: hidden;
+
+		&::after {
+			content: '';
+			position: absolute;
+			left: -2px;
+			bottom: -2px;
+			height: 100%;
+			width: 101%;
+			background: url(/static/img/cta-crop.svg) bottom center/contain;
+			background-repeat: no-repeat;
+		}
 	}
 }
 
