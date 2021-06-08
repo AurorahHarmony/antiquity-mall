@@ -148,6 +148,14 @@ $font-family-base: 'Nunito', sans-serif;
 	}
 }
 
+#features {
+	.features-container {
+		background-color: $white;
+		border: 9px solid #ccbdff;
+		border-radius: 0.25rem;
+	}
+}
+
 footer {
 	a {
 		color: $white;
