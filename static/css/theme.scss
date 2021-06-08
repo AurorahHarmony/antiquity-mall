@@ -6,6 +6,8 @@
 // $body-color: #111;
 $primary: #1b28a4;
 
+$font-family-base: 'Nunito', sans-serif;
+
 // Required
 @import '../../node_modules/bootstrap/scss/variables';
 @import '../../node_modules/bootstrap/scss/mixins';
@@ -130,12 +132,18 @@ $primary: #1b28a4;
 		&::after {
 			content: '';
 			position: absolute;
-			left: -2px;
-			bottom: -2px;
+			top: 0;
+			left: 0;
 			height: 100%;
 			width: 101%;
-			background: url(/static/img/cta-crop.svg) bottom center/contain;
+			background: url(/static/img/cta-crop-2.png) bottom center/cover;
 			background-repeat: no-repeat;
+		}
+
+		video {
+			object-fit: cover;
+			height: 100%;
+			width: 100%;
 		}
 	}
 }
