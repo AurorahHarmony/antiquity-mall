@@ -156,6 +156,18 @@ $font-family-base: 'Nunito', sans-serif;
 	}
 }
 
+#playerCount {
+	.player-count-number {
+		font-size: 7rem;
+		font-weight: 700;
+		line-height: 1;
+		margin-bottom: 0;
+		.start-zero {
+			color: #ffffff40;
+		}
+	}
+}
+
 footer {
 	a {
 		color: $white;
