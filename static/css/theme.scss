@@ -29,6 +29,10 @@ $headings-color: #4e6b83;
 	background-image: linear-gradient(to bottom, #1f1061 null, #000b22 null);
 }
 
+.gradient-pinkorange {
+	background-image: linear-gradient(to top right, #fc5c7d, #ff7f41);
+}
+
 //Hide the Mobile nav on desktop
 #mobileNav {
 	@extend .d-md-none;
