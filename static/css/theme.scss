@@ -215,10 +215,8 @@ $headings-color: #4e6b83;
 		width: 100%;
 		@extend .my-2;
 		transition-duration: 250ms;
-		transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
-	}
-	a:hover {
-		img {
+
+		&:hover {
 			filter: drop-shadow(2px 6px 5px rgba(0, 0, 0, 0.25));
 			transform: translateY(-5px);
 		}
@@ -240,5 +238,19 @@ $headings-color: #4e6b83;
 footer {
 	a {
 		color: $white;
+	}
+}
+
+/*Splide Styles*/
+.splide__pagination {
+	bottom: unset;
+
+	.splide__pagination__page {
+		width: 13px;
+		height: 13px;
+
+		&.is-active {
+			background-color: $primary;
+		}
 	}
 }
