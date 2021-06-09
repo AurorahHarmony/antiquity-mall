@@ -108,6 +108,21 @@ $headings-color: #4e6b83;
 
 .get-connected {
 	background-color: #000000b3;
+
+	.get-connected-text {
+		width: 100%;
+		font-weight: 300;
+		font-size: 2.3rem;
+		align-self: center;
+		text-align: center;
+
+		@include media-breakpoint-up(lg) {
+			font-size: 3.1rem;
+		}
+		@include media-breakpoint-up(xl) {
+			font-size: 3rem;
+		}
+	}
 }
 
 #cta {
