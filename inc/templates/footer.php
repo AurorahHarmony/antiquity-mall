@@ -27,8 +27,9 @@
 		        </ul>
 		      </div>
 		      <div class="col-sm-6 col-md-3 d-flex">
-		        <img src="/static/img/logo-vertical-white-text.svg" width="100%" height="110px" class="align-self-center"
-		          alt="Dreamscape Logo" />
+		        <a href="/" class="w-100 align-self-center">
+		          <img src="/static/img/logo-vertical-white-text.svg" width="100%" height="110px" alt="Dreamscape Logo" />
+		        </a>
 		      </div>
 		    </div>
 		    <hr />

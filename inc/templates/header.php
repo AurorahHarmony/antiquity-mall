@@ -46,7 +46,7 @@ if (isset($title)) {
 
       <!-- Logo -->
       <div class="navbar-brand mx-lg-auto">
-        <a href="#">
+        <a href="/">
           <div class="navbar-brand-bg">
             <img src="/static/img/logo-2.svg" alt="Dreamscape Logo" />
           </div>
@@ -75,16 +75,16 @@ if (isset($title)) {
       <div class="collapse navbar-collapse" id="mobileNav">
         <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#">Home</a>
+            <a class="nav-link" href="/">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">News</a>
+            <a class="nav-link" href="/news">News</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Forum</a>
+            <a class="nav-link" href="/external">Forum</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Account</a>
+            <a class="nav-link" href="/account">Account</a>
           </li>
         </ul>
       </div>
