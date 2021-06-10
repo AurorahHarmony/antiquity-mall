@@ -4,26 +4,26 @@
 		    <div class="row text-center text-sm-start">
 		      <div class="col-sm-6 col-md-3">
 		        <ul class="list-unstyled">
-		          <li><a href="#">Home</a></li>
-		          <li><a href="#">News</a></li>
-		          <li><a href="#">Forum</a></li>
-		          <li><a href="#">Privacy Policy</a></li>
+		          <li><a href="/">Home</a></li>
+		          <li><a href="/news">News</a></li>
+		          <li><a href="/external">Forum</a></li>
+		          <li><a href="/privacy-policy">Privacy Policy</a></li>
 		        </ul>
 		      </div>
 		      <div class="col-sm-6 col-md-3">
 		        <ul class="list-unstyled">
-		          <li><a href="#">My Account</a></li>
-		          <li><a href="#">My Profile</a></li>
-		          <li><a href="#">Downloads</a></li>
-		          <li><a href="#">EULA</a></li>
+		          <li><a href="/account">My Account</a></li>
+		          <li><a href="/account/profile">My Profile</a></li>
+		          <li><a href="/account/downloads">Downloads</a></li>
+		          <li><a href="/eula">EULA</a></li>
 		        </ul>
 		      </div>
 		      <div class="col-sm-6 col-md-3">
 		        <ul class="list-unstyled">
-		          <li><a href="#">Patreon</a></li>
-		          <li><a href="#">Shop</a></li>
-		          <li><a href="#">Help</a></li>
-		          <li><a href="#">About</a></li>
+		          <li><a href="/external">Patreon</a></li>
+		          <li><a href="/external">Shop</a></li>
+		          <li><a href="/help">Help</a></li>
+		          <li><a href="/about">About</a></li>
 		        </ul>
 		      </div>
 		      <div class="col-sm-6 col-md-3 d-flex">

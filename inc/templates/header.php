@@ -36,10 +36,10 @@ if (isset($title)) {
       <div class="collapse navbar-collapse" id="navLeft">
         <ul class="navbar-nav w-100 mb-2 mb-lg-0">
           <li class="nav-item w-50">
-            <a class="nav-link" href="#">Home</a>
+            <a class="nav-link" href="/">Home</a>
           </li>
           <li class="nav-item w-50">
-            <a class="nav-link" href="#">News</a>
+            <a class="nav-link" href="/news">News</a>
           </li>
         </ul>
       </div>
@@ -57,10 +57,10 @@ if (isset($title)) {
       <div class="collapse navbar-collapse" id="navRight">
         <ul class="navbar-nav w-100 text-end mb-2 mb-lg-0 ms-auto">
           <li class="nav-item w-50">
-            <a class="nav-link" href="#">Forum</a>
+            <a class="nav-link" href="/external">Forum</a>
           </li>
           <li class="nav-item w-50">
-            <a class="nav-link" href="#">Account</a>
+            <a class="nav-link" href="/account">Account</a>
           </li>
         </ul>
       </div>
