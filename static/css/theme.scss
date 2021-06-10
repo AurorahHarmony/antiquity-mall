@@ -43,7 +43,23 @@ $headings-color: #4e6b83;
 		@extend .py-3;
 		display: inline-block;
 		color: $white;
+		position: relative;
 		// @extend .px-4;
+		&::after {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 0;
+			height: 5px;
+			background-color: white;
+			transition-duration: 250ms;
+		}
+		&:hover {
+			&::after {
+				width: 100%;
+			}
+		}
 	}
 }
 
