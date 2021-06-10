@@ -236,8 +236,39 @@ $headings-color: #4e6b83;
 }
 
 footer {
-	a {
-		color: $white;
+	li {
+		margin-bottom: 0.5rem;
+		a {
+			display: inline-block;
+			color: #fff;
+			text-decoration: none;
+			padding: 0.2rem 0.4rem;
+			transition-duration: 350ms;
+			position: relative;
+			z-index: 5;
+
+			&::after {
+				content: '';
+				position: absolute;
+				height: 4px;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				background-image: linear-gradient(to top right, #fc5c7d, #ff7f41);
+				opacity: 0.5;
+				z-index: -1;
+				transition-duration: 300ms;
+			}
+
+			&:hover {
+				color: $white;
+
+				&::after {
+					opacity: 1;
+					height: 100%;
+				}
+			}
+		}
 	}
 }
 
