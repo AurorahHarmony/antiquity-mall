@@ -17,6 +17,10 @@ $headings-color: #4e6b83;
 
 @import '../../node_modules/bootstrap/scss/bootstrap';
 
+html {
+	background-color: #000b22;
+}
+
 .bg-lavender {
 	background-color: #d8daff;
 }
@@ -39,6 +43,7 @@ $headings-color: #4e6b83;
 }
 
 #mainNavbar {
+	z-index: 100;
 	.nav-link {
 		@extend .py-3;
 		display: inline-block;
@@ -184,6 +189,7 @@ $headings-color: #4e6b83;
 	.get-connected {
 		margin-top: 40vh;
 		margin-bottom: 3rem;
+		z-index: 50;
 	}
 
 	.video-wrapper {
@@ -195,7 +201,6 @@ $headings-color: #4e6b83;
 		height: 100%;
 		width: 100%;
 		object-fit: cover;
-		z-index: -100;
 		right: 0;
 		bottom: 0;
 		overflow: hidden;
