@@ -1,4 +1,8 @@
-<?php require_once('inc/templates/header.php') ?>
+<?php
+$title = 'Page Not Found';
+http_response_code(404);
+
+require_once('inc/templates/header.php') ?>
 
 <div class="container py-5">
   <div class="py-5">

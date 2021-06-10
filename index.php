@@ -1,4 +1,8 @@
-<?php require_once('inc/templates/header.php') ?>
+<?php
+
+$title = 'Home';
+
+require_once('inc/templates/header.php') ?>
 
 <!-- Call to Action -->
 <div id="cta" class="py-5">
