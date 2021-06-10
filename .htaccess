@@ -1,5 +1,10 @@
 ErrorDocument 404 /404.php
 
+# Rewrite .php extensions
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule !.*\.php$ %{REQUEST_FILENAME}.php [QSA,L]
+
 # Add charset hint to response
 <IfModule mod_mime.c>
     AddCharset utf-8 .css \
