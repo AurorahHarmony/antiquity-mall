@@ -5,6 +5,12 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+if (isset($title)) {
+  $title .= ' | ';
+} else {
+  $title = '';
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +19,7 @@ error_reporting(E_ALL);
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DreamScape</title>
+  <title><?php echo $title ?>DreamScape</title>
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/@splidejs/splide@2.4.21/dist/css/splide.min.css" />
   <link rel="stylesheet" href="/static/css/theme.min.css" />
