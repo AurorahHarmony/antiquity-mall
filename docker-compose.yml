@@ -16,7 +16,7 @@ services:
       MYSQL_PASSWORD: ${DB_PASSWORD}
       MYSQL_RANDOM_ROOT_PASSWORD: '1'
     volumes:
-      - mariadb:/var/lib/mysql
+      - dreamscapedb:/var/lib/mysql
 
   phpmyadmin:
     image: phpmyadmin
@@ -27,4 +27,4 @@ services:
     depends_on:
       - mariadb
 volumes:
-  mariadb:
+  dreamscapedb:
