@@ -40,7 +40,7 @@ class UserService
     }
 
     $db = new Database;
-    $users = $db->select('SELECT * FROM users WHERE username = :username', ['username' => $username]);
+    $users = $db->select('SELECT * FROM users WHERE username = :username COLLATE utf8mb4_general_ci', ['username' => $username]);
     if (!empty($users)) { //Check if a user with this username already exists
       $form->add_error('username', 'A User with this Username already exists.');
     }
