@@ -42,15 +42,15 @@ class UserService
     }
 
     //Email Validation
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) { //Check if email format is valid
       $form->add_error('email', 'Email Address is invalid.');
+    } else {
+      $db = new Database;
+      $users = $db->select('SELECT * FROM users WHERE email = :email', ['email' => $email]);
+      if (!empty($users)) { //Check if a user with this email already exits
+        $form->add_error('username', 'Email already registered.');
+      }
     }
-
-    /**
-     * 
-     * CHECK IF THE EMAIL ALREADY EXISTS
-     * 
-     */
 
     //Date of Birth Validation
     if (empty($dob)) {
