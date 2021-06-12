@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $created = UserService::create($form);
 
   if ($created === true) {
-    header('location: /login');
+    header('location: /registration-success?username=' . $form->get_value('username'));
     exit;
   }
 }
