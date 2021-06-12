@@ -1,7 +1,11 @@
 <?php
+require_once('../inc/handlers/SessionHandler.php');
+$session = new Session;
+$session->protected_route();
+
 $title = 'My Account';
 
-require_once(__DIR__ . '/../inc/templates/header.php')
+require_once(__DIR__ . '/../inc/templates/header.php');
 ?>
 
 <div class="container py-5">
