@@ -1,11 +1,27 @@
 <?php
+// Create the Form instance
+require_once('inc/classes/FormHandler.php');
+$values = [
+  'username' => $_POST['username'],
+  'password' => $_POST['password']
+];
+$form = new Form($values);
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+
+  require_once('inc/services/UserService.php');
+  $validated = UserService::validate($form);
+
+  if ($validated === true) {
+    header('location: /account');
+    exit;
+  }
+}
+
 $title = 'Login';
 
 require_once('inc/templates/header.php');
-
-require_once('inc/services/UserService.php');
-
-// $newUser = UserService::create()
 
 ?>
 <div class="container-fluid gradient-pinkorange">
@@ -17,14 +33,15 @@ require_once('inc/services/UserService.php');
 
         <h1>Login</h1>
         <p>Sign in to your account</p>
-        <form class="small">
+        <?php $form->echo_formatted_general_error() ?>
+        <form class="small" method="POST">
           <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">Email address</label>
+            <input type="text" name="username" class="form-control" id="username" placeholder="Username">
+            <label for="username">Username</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-            <label for="floatingPassword">Password</label>
+            <input type="password" name="password" class="form-control" id="password" placeholder="Password">
+            <label for="password">Password</label>
           </div>
           <button type="submit" class="btn btn-primary w-100">Sign In</button>
           <hr>
