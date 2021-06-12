@@ -106,14 +106,20 @@ class UserService
     }
 
     //Create User
+    try {
 
-    $db = new Database;
-    $db->insert('users', [
-      'username' => $username,
-      'email' => $email,
-      'birthdate' => $dob,
-      'password' => $password
-    ]);
+      $db = new Database;
+      $db->insert('users', [
+        'username' => $username,
+        'email' => $email,
+        'birthdate' => $dob,
+        'password' => $password
+      ]);
+      return true;
+    } catch (\Throwable $th) {
+      $form->general_error = 'Internal Server Error.';
+      return false;
+    }
   }
 
   /**
