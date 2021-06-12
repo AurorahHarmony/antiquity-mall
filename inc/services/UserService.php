@@ -31,6 +31,10 @@ class UserService
       $form->add_error('username', 'Username must be atleast 4 characters long.');
     }
 
+    if (strlen($username) > 20) {
+      $form->add_error('username', 'Username must be shorter than 20 characters');
+    }
+
     if (preg_match("/[^a-zA-Z0-9._-]/", $username)) { //Restrict usernames to characters, numbers, and some symbols
       $form->add_error('username', 'Usernames can only contain the characters letters, numbers, hyphens, underscores and periods.');
     }
