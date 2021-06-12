@@ -101,4 +101,15 @@ class Form
       echo "<div class='alert alert-danger' role='alert'>{$this->general_error}</div>";
     }
   }
+
+  /**
+   * Echo the error as plain text
+   * @param string $input_name The name of the input you want to get the value of
+   */
+  public function echo_raw_error($input_name)
+  {
+    foreach ($this->data[$input_name]['errors'] as $error) {
+      echo "<p class='text-danger mb-1'>{$error}</p>";
+    }
+  }
 }
