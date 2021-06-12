@@ -11,6 +11,34 @@ if (isset($title)) {
   $title = '';
 }
 
+if (!isset($_SESSION)) {
+  session_start();
+}
+
+function account_dropdown($add_w_class = false)
+{
+  if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) : ?>
+    <li class="nav-item dropdown<?php echo $add_w_class ? ' w-50' : '' ?>">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <?php echo $_SESSION['username'] ?? 'Username'; ?>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-end text-md-end" aria-labelledby="navbarDropdown">
+        <li><a class="dropdown-item" href="/account">My Account</a></li>
+        <li><a class="dropdown-item" href="/account/downloads">My Downloads</a></li>
+        <li>
+          <hr class="dropdown-divider">
+        </li>
+        <li><a class="dropdown-item text-danger" href="/logout">Logout</a></li>
+      </ul>
+    </li>
+  <?php else : ?>
+    <li class="nav-item<?php echo $add_w_class ? ' w-50' : '' ?>">
+      <a class="nav-link" href="/account">Account</a>
+    </li>
+<?php
+  endif;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -59,15 +87,12 @@ if (isset($title)) {
           <li class="nav-item w-50">
             <a class="nav-link" href="/external">Forum</a>
           </li>
-          <li class="nav-item w-50">
-            <a class="nav-link" href="/account">Account</a>
-          </li>
+          <?php account_dropdown(true) ?>
         </ul>
       </div>
 
       <!-- Navbar Toggler -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mobileNav"
-        aria-controls="mobileNav" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mobileNav" aria-controls="mobileNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
@@ -83,9 +108,7 @@ if (isset($title)) {
           <li class="nav-item">
             <a class="nav-link" href="/external">Forum</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/account">Account</a>
-          </li>
+          <?php account_dropdown() ?>
         </ul>
       </div>
     </div>
