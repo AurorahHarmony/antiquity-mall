@@ -16,9 +16,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
   require_once('inc/services/UserService.php');
-  $validated = UserService::create($form);
+  $created = UserService::create($form);
 
-  if ($validated === true) {
+  if ($created === true) {
     header('location: /login');
     exit;
   }
