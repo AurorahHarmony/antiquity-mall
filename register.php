@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   }
 }
 
-$title = 'Login';
+$title = 'Register';
 
 require_once('inc/templates/header.php');
 
