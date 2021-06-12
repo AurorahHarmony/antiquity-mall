@@ -20,7 +20,7 @@ function account_dropdown($add_w_class = false)
   if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) : ?>
     <li class="nav-item dropdown<?php echo $add_w_class ? ' w-50' : '' ?>">
       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        <?php echo $_SESSION['username'] ?? 'Username'; ?>
+        <?php echo $_SESSION['username'] ?? 'Username'; ?> +
       </a>
       <ul class="dropdown-menu dropdown-menu-end text-md-end" aria-labelledby="navbarDropdown">
         <li><a class="dropdown-item" href="/account">My Account</a></li>
