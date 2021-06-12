@@ -52,6 +52,7 @@ html {
 		// @extend .px-4;
 		&::after {
 			content: '';
+			border: none;
 			position: absolute;
 			bottom: 0;
 			left: 0;
