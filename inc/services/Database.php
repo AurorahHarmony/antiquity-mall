@@ -37,24 +37,28 @@ class Database extends PDO
     }
   }
 
-  // public function insert($table, $data)
-  // {
-  //   ksort($data);
+  /**
+   * @param string $table The name of the table you want to insert into
+   * @param array $data An associative array where the key is the column and the value is the value
+   */
+  public function insert($table, $data)
+  {
+    ksort($data);
 
-  //   $fieldNames = implode('`, `', array_keys($data));
-  //   $fieldValues = ':' . implode(', :', array_keys($data));
+    $fieldNames = implode('`, `', array_keys($data));
+    $fieldValues = ':' . implode(', :', array_keys($data));
 
-  //   $sth = $this->prepare("INSERT INTO $table (`$fieldNames`) VALUES ($fieldValues)");
+    $sth = $this->prepare("INSERT INTO $table (`$fieldNames`) VALUES ($fieldValues)");
 
-  //   foreach ($data as $key => $value) {
-  //     $sth->bindValue(":$key", $value);
-  //   }
+    foreach ($data as $key => $value) {
+      $sth->bindValue(":$key", $value);
+    }
 
-  //   if (!$sth->execute()) {
-  //     $this->handleError();
-  //     //print_r($sth->errorInfo());
-  //   }
-  // }
+    if (!$sth->execute()) {
+      $this->handleError();
+      //print_r($sth->errorInfo());
+    }
+  }
 
   // public function update($table, $data, $where)
   // {

@@ -48,7 +48,7 @@ class UserService
       $db = new Database;
       $users = $db->select('SELECT * FROM users WHERE email = :email', ['email' => $email]);
       if (!empty($users)) { //Check if a user with this email already exits
-        $form->add_error('username', 'Email already registered.');
+        $form->add_error('email', 'Email already registered.');
       }
     }
 
@@ -102,9 +102,14 @@ class UserService
     }
 
     //Create User
-    /**
-     * STUFF
-     */
+
+    $db = new Database;
+    $db->insert('users', [
+      'username' => $username,
+      'email' => $email,
+      'birthdate' => $dob,
+      'password' => $password
+    ]);
   }
 
   /**
