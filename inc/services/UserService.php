@@ -113,7 +113,7 @@ class UserService
         'username' => $username,
         'email' => $email,
         'birthdate' => $dob,
-        'password' => $password
+        'password' => password_hash($password, PASSWORD_DEFAULT)
       ]);
       return true;
     } catch (\Throwable $th) {
@@ -150,7 +150,7 @@ class UserService
 
     //If the found user does not have a matching password, return an error
     $the_user = $users[0];
-    if ($the_user['password'] != $password) {
+    if (password_verify($password, $the_user['password']) == false) {
       $form->general_error = $error_text;
       return false;
     }
