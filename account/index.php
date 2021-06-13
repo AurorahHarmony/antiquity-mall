@@ -6,13 +6,12 @@ $session->protected_route();
 $title = 'My Account';
 
 require_once(__DIR__ . '/../inc/templates/header.php');
+include(__DIR__ . '/../inc/templates/account/start.php');
 ?>
 
-<div class="container py-5">
-  <div class="py-5">
-    <h1>Account</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore maiores iusto nihil doloremque autem quia dicta
-      velit eius, asperiores facere iste minus cumque tenetur quo suscipit ex, eos similique modi.</p>
-  </div>
-</div>
-<?php require_once(__DIR__ . '/../inc/templates/footer.php') ?>
+<p>Welcome to the accounts page~!</p>
+
+<?php
+include(__DIR__ . '/../inc/templates/account/end.php');
+require_once(__DIR__ . '/../inc/templates/footer.php')
+?>
