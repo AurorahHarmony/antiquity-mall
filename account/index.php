@@ -9,7 +9,7 @@ require_once(__DIR__ . '/../inc/templates/header.php');
 include(__DIR__ . '/../inc/templates/account/start.php');
 ?>
 
-<p>Welcome to the accounts page~!</p>
+<p>Welcome, <b><?php echo $_SESSION['username'] ?? 'username' ?></b>.</p>
 
 <?php
 include(__DIR__ . '/../inc/templates/account/end.php');
