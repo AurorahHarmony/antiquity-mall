@@ -18,23 +18,24 @@ if (!isset($_SESSION)) {
 function account_dropdown($add_w_class = false)
 {
   if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) : ?>
-    <li class="nav-item dropdown<?php echo $add_w_class ? ' w-50' : '' ?>">
-      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        <?php echo $_SESSION['username'] ?? 'Username'; ?> +
-      </a>
-      <ul class="dropdown-menu dropdown-menu-end text-md-end" aria-labelledby="navbarDropdown">
-        <li><a class="dropdown-item" href="/account">My Account</a></li>
-        <li><a class="dropdown-item" href="/account/downloads">My Downloads</a></li>
-        <li>
-          <hr class="dropdown-divider">
-        </li>
-        <li><a class="dropdown-item text-danger" href="/logout">Logout</a></li>
-      </ul>
+<li class="nav-item dropdown<?php echo $add_w_class ? ' w-50' : '' ?>">
+  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+    aria-expanded="false">
+    <?php echo $_SESSION['username'] ?? 'Username'; ?> +
+  </a>
+  <ul class="dropdown-menu dropdown-menu-end text-md-end" aria-labelledby="navbarDropdown">
+    <li><a class="dropdown-item" href="/account">My Account</a></li>
+    <li><a class="dropdown-item" href="/account/downloads">My Downloads</a></li>
+    <li>
+      <hr class="dropdown-divider">
     </li>
-  <?php else : ?>
-    <li class="nav-item<?php echo $add_w_class ? ' w-50' : '' ?>">
-      <a class="nav-link" href="/account">Account</a>
-    </li>
+    <li><a class="dropdown-item text-danger" href="/logout">Logout</a></li>
+  </ul>
+</li>
+<?php else : ?>
+<li class="nav-item<?php echo $add_w_class ? ' w-50' : '' ?>">
+  <a class="nav-link" href="/account">Account</a>
+</li>
 <?php
   endif;
 }
@@ -50,6 +51,7 @@ function account_dropdown($add_w_class = false)
   <title><?php echo $title ?>DreamScape</title>
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/@splidejs/splide@2.4.21/dist/css/splide.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
   <link rel="stylesheet" href="/static/css/theme.min.css" />
 
   <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -92,7 +94,8 @@ function account_dropdown($add_w_class = false)
       </div>
 
       <!-- Navbar Toggler -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mobileNav" aria-controls="mobileNav" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mobileNav"
+        aria-controls="mobileNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
