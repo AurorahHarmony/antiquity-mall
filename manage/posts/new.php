@@ -11,8 +11,6 @@ $article_values = [
 ];
 $article_data = new Form($article_values);
 
-$server_error = null;
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   require_once(__DIR__ . '/../../inc/services/PostService.php');
