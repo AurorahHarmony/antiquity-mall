@@ -49,7 +49,7 @@ $tab_name = $tab_name ?? 'dashboard';
             </button>
             <div class="collapse" id="news-collapse">
               <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                <li><a href="#" class="link-dark rounded">All Posts</a></li>
+                <li><a href="/manage/posts" class="link-dark rounded">All Posts</a></li>
                 <li><a href="/manage/posts/new" class="link-dark rounded">New Post</a></li>
               </ul>
             </div>
