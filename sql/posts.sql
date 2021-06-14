@@ -1,0 +1,10 @@
+CREATE TABLE posts (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  title VARCHAR(100) NOT NULL,
+  author_id BIGINT UNSIGNED NOT NULL,
+  content MEDIUMTEXT NOT NULL,
+  publish_date TIMESTAMP NOT NULL DEFAULT NOW(),
+  PRIMARY KEY (id),
+  CONSTRAINT `fk_post_author`
+    FOREIGN KEY (author_id) REFERENCES users (id)
+)
