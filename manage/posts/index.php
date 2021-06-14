@@ -4,15 +4,6 @@ $session = new Session;
 $session->protected_route();
 
 require_once(__DIR__ . '/../../inc/services/PostService.php');
-// if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-//   require_once(__DIR__ . '/../../inc/services/PostService.php');
-//   $created = PostService::create($article_data);
-
-//   if ($created === true) {
-//     header('location: /manage/posts/');
-//   }
-// }
 
 $title = 'All Posts';
 require_once(__DIR__ . '/../../inc/templates/header.php');
