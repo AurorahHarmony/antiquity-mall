@@ -59,24 +59,34 @@ class Database extends PDO
     }
   }
 
-  // public function update($table, $data, $where)
-  // {
-  //   ksort($data);
+  /**
+   * @param string $table The table you are updating
+   * @param array $data An associative array where the key is the column and the value is the new value to update to
+   * @param string $where Anything placed after the "where" part of the statement
+   * @param array $where_binds associative array for bindings after the where statement
+   */
+  public function update($table, $data, $where, $where_binds)
+  {
+    ksort($data);
 
-  //   $fieldDetails = NULL;
-  //   foreach ($data as $key => $value) {
-  //     $fieldDetails .= "`$key`=:$key,";
-  //   }
-  //   $fieldDetails = rtrim($fieldDetails, ',');
+    $fieldDetails = NULL;
+    foreach ($data as $key => $value) {
+      $fieldDetails .= "`$key`=:$key,";
+    }
+    $fieldDetails = rtrim($fieldDetails, ',');
 
-  //   $sth = $this->prepare("UPDATE $table SET $fieldDetails WHERE $where");
+    $sth = $this->prepare("UPDATE $table SET $fieldDetails WHERE $where");
 
-  //   foreach ($data as $key => $value) {
-  //     $sth->bindValue(":$key", $value);
-  //   }
+    foreach ($data as $key => $value) {
+      $sth->bindValue(":$key", $value);
+    }
 
-  //   $sth->execute();
-  // }
+    foreach ($where_binds as $key => $value) {
+      $sth->bindValue(":$key", $value);
+    }
+
+    $sth->execute();
+  }
 
   // public function delete($table, $where, $limit = 1)
   // {
