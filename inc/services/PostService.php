@@ -110,12 +110,24 @@ class PostService
 
   /**
    * Gets all posts
+   * @param string $order_by_column The Column name to order the search by
+   * @param string[DESC|ASC] $order_by_order The Order in which to order by 
    * @return array of All posts
    */
-  public static function get_all()
+  public static function get_all($order_by_column = 'publish_date', $order_by_order = 'DESC')
   {
+    //Secure Column to Order by param
+    $columns = ['publish_date', 'id'];
+    $column_key = array_search($order_by_column, $columns);
+    $order_column = $columns[$column_key];
+
+    //Secure Order direction param
+    $directions = ['DESC', 'ASC'];
+    $direction_key = array_search($order_by_order, $directions);
+    $order_direction = $directions[$direction_key];
+
     $db = new Database;
-    $all_posts = $db->select('SELECT * FROM posts');
+    $all_posts = $db->select("SELECT * FROM posts ORDER BY $order_column $order_direction");
     return $all_posts;
   }
 
