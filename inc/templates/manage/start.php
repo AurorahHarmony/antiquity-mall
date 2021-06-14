@@ -1,4 +1,8 @@
 <?php
+require_once(__DIR__ . '/../../handlers/SessionHandler.php');
+$session = new Session;
+$session->protected_route();
+
 $tab_name = $tab_name ?? 'dashboard';
 ?>
 
@@ -11,7 +15,7 @@ $tab_name = $tab_name ?? 'dashboard';
   text-decoration: none;
 }
 
-.btn {
+.sidebar .btn {
   padding: .25rem .5rem;
   font-weight: 600;
   color: rgba(0, 0, 0, .65);
@@ -19,23 +23,15 @@ $tab_name = $tab_name ?? 'dashboard';
   border: 0;
 }
 
-.btn .btn-toggle {
+.sidebar .btn .btn-toggle {
   display: inline-block;
   transition: transform .35s ease;
   transform-origin: .6em 50%;
 }
 
-.btn[aria-expanded="true"] .btn-toggle {
+.sidebar .btn[aria-expanded="true"] .btn-toggle {
   transform: rotate(90deg);
 }
-
-/* .btn-toggle::before {
-  width: 1.25em;
-  line-height: 0;
-  content: url(data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%280,0,0,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e);
-  transition: transform .35s ease;
-  transform-origin: .5em 50%;
-} */
 </style>
 
 <div class="container py-5">
@@ -43,7 +39,7 @@ $tab_name = $tab_name ?? 'dashboard';
     <h1>Management</h1>
     <div class="row">
       <div class="col-md-4 col-lg-3">
-        <ul class="list-unstyled ps-0">
+        <ul class="list-unstyled ps-0 sidebar">
           <li class="mb-1">
             <a href="/manage" class="btn align-items-center rounded">
               Dashboard
@@ -58,7 +54,7 @@ $tab_name = $tab_name ?? 'dashboard';
             <div class="collapse" id="news-collapse">
               <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                 <li><a href="#" class="link-dark rounded">All Posts</a></li>
-                <li><a href="#" class="link-dark rounded">New Post</a></li>
+                <li><a href="/manage/posts/new" class="link-dark rounded">New Post</a></li>
               </ul>
             </div>
           </li>
