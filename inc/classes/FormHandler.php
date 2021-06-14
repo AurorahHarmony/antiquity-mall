@@ -30,6 +30,16 @@ class Form
   }
 
   /**
+   * @param string $input_name The name of the input you want to set the value of
+   * @param string $value The new value to set it to
+   */
+  public function set_value($input_name, $value = '')
+  {
+    $this->data[$input_name]['value'] = $value;
+  }
+
+
+  /**
    * @param string $input_name The name of the input you want to get the value of
    * @param string $error_text An error message for this input
    */
