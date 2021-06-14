@@ -11,8 +11,7 @@ class Database extends PDO
   public function __construct()
   {
     parent::__construct("mysql:host=" . DB_SERVER . ";dbname=" . DB_NAME, DB_USERNAME, DB_PASSWORD);
-    // $this->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
+    $this->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   }
 
 
@@ -56,7 +55,7 @@ class Database extends PDO
 
     if (!$sth->execute()) {
       $this->handleError();
-      //print_r($sth->errorInfo());
+      // print_r($sth->errorInfo());
     }
   }
 
