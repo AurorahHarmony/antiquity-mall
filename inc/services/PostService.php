@@ -6,6 +6,10 @@ require_once(__DIR__ . '/../classes/FormHandler.php');
 class PostService
 {
 
+  /**
+   * @param Form $form Takes a form class object with title, user_id and content keys.
+   * @return bool True if the post is sucessfully created
+   */
   static function create(Form $form)
   {
     $title = trim($form->get_value('title'));
@@ -46,5 +50,12 @@ class PostService
       $form->general_error = 'Internal Server Error - ' . $th;
       return false;
     }
+  }
+
+  public static function get_all()
+  {
+    $db = new Database;
+    $all_posts = $db->select('SELECT * FROM posts');
+    return $all_posts;
   }
 }
