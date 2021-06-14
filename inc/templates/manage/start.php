@@ -1,8 +1,4 @@
 <?php
-require_once(__DIR__ . '/../../handlers/SessionHandler.php');
-$session = new Session;
-$session->protected_route();
-
 $tab_name = $tab_name ?? 'dashboard';
 ?>
 
