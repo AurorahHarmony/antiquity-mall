@@ -36,7 +36,7 @@ class PostService
     try {
       $db = new Database;
       $db->insert('posts', [
-        // 'title' => $sanitized_title,
+        'title' => $sanitized_title,
         'author_id' => $user_id,
         'content' => $content
       ]);
