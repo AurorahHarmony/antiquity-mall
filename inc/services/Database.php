@@ -88,12 +88,27 @@ class Database extends PDO
     $sth->execute();
   }
 
-  // public function delete($table, $where, $limit = 1)
-  // {
-  //   return $this->exec("DELETE FROM $table WHERE $where LIMIT $limit");
-  // }
+  /**
+   * @param string $table The table to delete from
+   * @param string $where Queries placed after where
+   * @param array $params Values to bind to the WHERE statement. :id is bound to 'id' => int
+   */
+  public function delete($table, $where, $params = array(), $limit = 1)
+  {
+    $sth = $this->prepare("DELETE FROM $table WHERE $where LIMIT $limit");
 
-  // /* count rows*/
+    foreach ($params as $key => $value) {
+      $sth->bindValue("$key", $value);
+    }
+
+    if ($result = !$sth->execute()) {
+      $this->handleError();
+    } else {
+      return true;
+    }
+  }
+
+  /* count rows*/
   // public function rowsCount($table)
   // {
   //   $sth = $this->prepare("SELECT * FROM " . $table);
