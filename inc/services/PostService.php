@@ -145,4 +145,15 @@ class PostService
       return false;
     }
   }
+
+  public static function delete($post_id)
+  {
+    try {
+      $db = new Database;
+      $deleted = $db->delete('posts', 'id = :id', ['id' => $post_id]);
+      return $deleted;
+    } catch (\Throwable $th) {
+      return 'Internal Server Error';
+    }
+  }
 }
