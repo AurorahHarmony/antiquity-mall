@@ -3,7 +3,11 @@ require_once(__DIR__ . '/Database.php');
 class PermissionService
 {
 
-  public static function get_perms($user_id)
+  /**
+   * @param int $user_id The ID of the user you want to get permissions of
+   * @return array An array of the user's permissions
+   */
+  public static function get_perms(int $user_id)
   {
     $db = new Database;
     $permissions = $db->select(
@@ -23,14 +27,31 @@ class PermissionService
     return $perm_array;
   }
 
-  public static function has_perm($user_id, $perm_name, $get_fresh = true)
+  /**
+   * @param int $user_id The ID of the user you want to check the permission for
+   * @param string $perm_name The permission you want to check against
+   * @param bool $get_fresh Should permissions be pulled freshly from the database?
+   * @return array|bool False if the user does not have the permission. Otherwise, an array of their permissions
+   */
+  public static function has_perm(int $user_id, $perm_name, $get_fresh = false)
   {
-    $user_perms = self::get_perms($user_id);
+    $user_perms = null;
+    if ($get_fresh) {
+      $user_perms = self::get_perms($user_id);
+      $_SESSION['perms'] = $user_perms;
+    } else {
+
+      if (!isset($_SESSION)) {
+        session_start();
+      }
+
+      $user_perms = $_SESSION['perms'];
+    }
 
     if (array_search($perm_name, $user_perms) === false) {
       return false;
     } else {
-      return true;
+      return $user_perms;
     }
   }
 }
