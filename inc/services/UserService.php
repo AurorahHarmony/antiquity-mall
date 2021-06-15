@@ -150,14 +150,6 @@ class UserService
 
     $the_user = $users[0];
 
-    //Check if the User is allowed to login
-    require_once(__DIR__ . '/PermissionService.php');
-
-    if (!PermissionService::has_perm($the_user['id'], 'LOGIN')) {
-      $form->general_error = 'You do not have permission to login. This may be because you are banned or because of a server error ';
-      return false;
-    }
-
     //If the found user does not have a matching password, return an error
     if (password_verify($password, $the_user['password']) == false) {
       $form->general_error = $error_text;
@@ -170,7 +162,7 @@ class UserService
       $session->login((int) $the_user['id'], $the_user['username']);
       return true;
     } catch (\Throwable $th) {
-      $form->general_error = 'Internal Server Error ';
+      $form->general_error = 'Internal Server Error: ' . $th->getMessage();
       return false;
     }
   }
