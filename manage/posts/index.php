@@ -16,7 +16,7 @@ $all_posts = PostService::get_all(); ?>
     <tr>
       <th scope="col">ID</th>
       <th scope="col">Title</th>
-      <th scope="col" class="text-end">Created On</th>
+      <th scope="col" class="text-end">Created</th>
       <th scope="col" class="text-end">Actions</th>
     </tr>
   </thead>
@@ -27,7 +27,7 @@ $all_posts = PostService::get_all(); ?>
     <tr>
       <th scope="row"><?= $post['id'] ?></th>
       <td><?= $post['title'] ?></td>
-      <td class="text-muted text-end"><?= date_format(new DateTime($post['publish_date']), "j M, Y \a\\t g:ia ")  ?>
+      <td class="text-muted text-end"><?= date_format(new DateTime($post['publish_date']), "g:ia - j/m/Y")  ?>
       </td>
       <td class="text-end">
         <a href="/news/article?id=<?= $post['id'] ?>" class="mx-1" title="View"><i
