@@ -9,7 +9,7 @@ require_once(__DIR__ . '/../inc/templates/header.php');
 include(__DIR__ . '/../inc/templates/manage/start.php');
 ?>
 
-<p>This is the admin dashboard!</p>
+<p>Admin Dashboard</p>
 
 <?php
 include(__DIR__ . '/../inc/templates/manage/end.php');
