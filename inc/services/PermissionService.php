@@ -54,4 +54,21 @@ class PermissionService
       return $user_perms;
     }
   }
+
+  /**
+   * @param int $user_id The ID of the user you want to get the role name of
+   * @return string The user's role name
+   */
+  public static function get_role(int $user_id)
+  {
+    $db = new Database;
+    $roles = $db->select(
+      'SELECT roles.role_name FROM users 
+	      JOIN roles ON roles.role_id = users.role_id
+        WHERE users.id = :user_id
+    ',
+      ['user_id' => $user_id]
+    );
+    return $roles[0]['role_name'];
+  }
 }
