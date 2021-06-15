@@ -25,15 +25,24 @@ class Session
   public function login($user_id = null, $username = null)
   {
     if (!is_int($user_id)) {
-      throw new Error('The user ID must be an Integer!');
+      throw new Error('Invalid User ID');
     }
 
     if (empty($username)) {
-      throw new Error('The Username cannot be empty!');
+      throw new Error('Invalid Username');
+    }
+
+    //Check if the User is allowed to login
+    require_once(__DIR__ . '/../services/PermissionService.php');
+
+    $user_perms = PermissionService::has_perm($user_id, 'LOGIN', true);
+    if (!$user_perms) {
+      throw new Error("You do not have permission to login.");
     }
 
     $_SESSION['id'] = $user_id;
     $_SESSION['logged_in'] = true;
     $_SESSION['username'] = $username;
+    $_SESSION['perms'] = $perms;
   }
 }
