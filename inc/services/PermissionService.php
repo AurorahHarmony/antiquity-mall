@@ -71,4 +71,15 @@ class PermissionService
     );
     return $roles[0]['role_name'];
   }
+
+  /**
+   * Echos out a formatted error message stating the missing permissions
+   */
+  public static function echo_insufficient_perm()
+  {
+    echo '<div class="alert alert-danger text-center" role="alert">
+            <h1 class="text-danger">Unable to complete action. Missing permissions.</h1>
+            <button class="btn btn-info" onclick="window.history.back()">&lt; Back</button>
+          </div>';
+  }
 }
