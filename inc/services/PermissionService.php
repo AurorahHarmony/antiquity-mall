@@ -33,7 +33,7 @@ class PermissionService
    * @param bool $get_fresh Should permissions be pulled freshly from the database?
    * @return array|bool False if the user does not have the permission. Otherwise, an array of their permissions
    */
-  public static function has_perm(int $user_id, $perm_name, $get_fresh = false)
+  public static function has_perm($perm_name, int $user_id, $get_fresh = false)
   {
     $user_perms = null;
     if ($get_fresh) {
