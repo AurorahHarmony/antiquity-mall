@@ -9,7 +9,7 @@ class Session
   }
 
   /**
-   * @param string $required_perm A permission that is required to view this route
+   * @param string|array $required_perm A permission or array of permissions that is required to view this route
    * @param bool $get_fresh Should we force the system to get fresh user perms from the database?
    */
 
@@ -29,11 +29,23 @@ class Session
         exit;
       } else {
         require_once(__DIR__ . '/../services/PermissionService.php');
-        $user_perms = PermissionService::has_perm($required_perm, $_SESSION['id'], $get_fresh);
-        if ($user_perms == false) {
-          http_response_code(404);
-          header('location: /404');
-          exit;
+        if (!is_array($required_perm)) {
+          $user_perms = PermissionService::has_perm($required_perm, $_SESSION['id'], $get_fresh);
+          if ($user_perms == false) {
+            http_response_code(404);
+            header('location: /404');
+            exit;
+          }
+        } else {
+          $user_perms = PermissionService::get_perms($_SESSION['id']);
+          // print_r($user_perms);
+          foreach ($required_perm as $the_perm) {
+            if (!array_search($the_perm, $user_perms)) {
+              http_response_code(404);
+              header('location: /manage');
+              exit;
+            }
+          }
         }
       }
     }
