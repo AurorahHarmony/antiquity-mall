@@ -3,36 +3,43 @@ require_once(__DIR__ . '/../../inc/handlers/SessionHandler.php');
 $session = new Session;
 $session->protected_route('ACCESS_MANAGER', true);
 
-//GET Handling
-if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['id'])) {
-  require_once(__DIR__ . '/../../inc/services/PostService.php');
+require_once(__DIR__ . '/../../inc/services/PermissionService.php');
+$can_edit = PermissionService::has_perm('MANAGE_POSTS', $_SESSION['id']);
 
-  $post_data = PostService::get_one(trim($_GET['id']));
+if ($can_edit) :
 
-  if ($post_data == false) {
+  //GET Handling
+  if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['id'])) {
+    require_once(__DIR__ . '/../../inc/services/PostService.php');
+
+    $post_data = PostService::get_one(trim($_GET['id']));
+
+    if ($post_data == false) {
+      header('location: /404');
+      exit;
+    }
+  }
+
+  //POST Handling
+  else if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['post_id'])) {
+
+    require_once(__DIR__ . '/../../inc/services/PostService.php');
+
+    $deleted = PostService::delete(trim($_POST['post_id']));
+
+    if ($deleted === true) {
+      header('location: /manage/posts/');
+      exit;
+    }
+  }
+
+  // All other requests
+  else {
+    http_response_code('404');
     header('location: /404');
-    exit;
   }
-}
 
-//POST Handling
-else if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['post_id'])) {
-
-  require_once(__DIR__ . '/../../inc/services/PostService.php');
-
-  $deleted = PostService::delete(trim($_POST['post_id']));
-
-  if ($deleted === true) {
-    header('location: /manage/posts/');
-    exit;
-  }
-}
-
-// All other requests
-else {
-  http_response_code('404');
-  header('location: /404');
-}
+endif;
 
 $title = 'Edit Post';
 
@@ -45,6 +52,7 @@ require_once(__DIR__ . '/../../inc/templates/manage/start.php');
 </div>
 <?php endif; ?>
 
+<?php if ($can_edit) : ?>
 <div class='alert alert-danger text-center' role='alert'>
   <h1 class="text-danger text-uppercase">DELETE <?= $post_data['title'] ?>?</h1>
   <p>This action is <strong>irreversable</strong>, and will <strong>permanently <span class="text-uppercase">DELETE
@@ -57,6 +65,11 @@ require_once(__DIR__ . '/../../inc/templates/manage/start.php');
     <button type="submit" name="really_delete" value="true" class="btn btn-secondary btn-sm">Delete</button>
   </form>
 </div>
+<?php
+else :
+  PermissionService::echo_insufficient_perm();
+endif;
+?>
 
 <?php
 require_once(__DIR__ . '/../../inc/templates/manage/end.php');
