@@ -1,4 +1,5 @@
 <?php
+//This is here for security incase another manager file accidentally misses it
 require_once(__DIR__ . '/../../handlers/SessionHandler.php');
 $session = new Session;
 $session->protected_route('ACCESS_MANAGER', true);

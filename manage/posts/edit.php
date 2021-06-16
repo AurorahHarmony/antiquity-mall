@@ -1,7 +1,7 @@
 <?php
 require_once(__DIR__ . '/../../inc/handlers/SessionHandler.php');
 $session = new Session;
-$session->protected_route();
+$session->protected_route('ACCESS_MANAGER', true);
 
 //GET Handling
 if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['id'])) {

@@ -1,13 +1,12 @@
 <?php
 require_once(__DIR__ . '/../../inc/handlers/SessionHandler.php');
 $session = new Session;
-$session->protected_route();
-
-require_once(__DIR__ . '/../../inc/services/PostService.php');
+$session->protected_route('ACCESS_MANAGER', true);
 
 $title = 'All Posts';
 require_once(__DIR__ . '/../../inc/templates/manage/start.php');
 
+require_once(__DIR__ . '/../../inc/services/PostService.php');
 $all_posts = PostService::get_all(); ?>
 <table class="table table-hover">
   <thead>
