@@ -6,9 +6,7 @@ $session->protected_route();
 require_once(__DIR__ . '/../../inc/services/PostService.php');
 
 $title = 'All Posts';
-require_once(__DIR__ . '/../../inc/templates/header.php');
-
-include(__DIR__ . '/../../inc/templates/manage/start.php');
+require_once(__DIR__ . '/../../inc/templates/manage/start.php');
 
 $all_posts = PostService::get_all(); ?>
 <table class="table table-hover">
@@ -44,6 +42,5 @@ $all_posts = PostService::get_all(); ?>
   </tbody>
 </table>
 <?php
-include(__DIR__ . '/../../inc/templates/manage/end.php');
-require_once(__DIR__ . '/../../inc/templates/footer.php')
+require_once(__DIR__ . '/../../inc/templates/manage/end.php');
 ?>

@@ -1,4 +1,12 @@
 <?php
+require_once(__DIR__ . '/../../handlers/SessionHandler.php');
+$session = new Session;
+$session->protected_route('ACCESS_MANAGER', true);
+
+$title = $title ?? 'Site Management';
+
+require_once(__DIR__ . '/../../templates/header.php');
+
 $tab_name = $tab_name ?? 'dashboard';
 ?>
 

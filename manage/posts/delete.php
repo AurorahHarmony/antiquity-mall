@@ -35,9 +35,8 @@ else {
 }
 
 $title = 'Edit Post';
-require_once(__DIR__ . '/../../inc/templates/header.php');
 
-include(__DIR__ . '/../../inc/templates/manage/start.php');
+require_once(__DIR__ . '/../../inc/templates/manage/start.php');
 ?>
 
 <?php if (isset($deleted) && $deleted !== true) : ?>
@@ -60,6 +59,5 @@ include(__DIR__ . '/../../inc/templates/manage/start.php');
 </div>
 
 <?php
-include(__DIR__ . '/../../inc/templates/manage/end.php');
-require_once(__DIR__ . '/../../inc/templates/footer.php')
+require_once(__DIR__ . '/../../inc/templates/manage/end.php');
 ?>

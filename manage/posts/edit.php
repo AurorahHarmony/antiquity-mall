@@ -47,9 +47,8 @@ else {
 }
 
 $title = 'Edit Post';
-require_once(__DIR__ . '/../../inc/templates/header.php');
 
-include(__DIR__ . '/../../inc/templates/manage/start.php');
+require_once(__DIR__ . '/../../inc/templates/manage/start.php');
 ?>
 
 <script src="/static/js/tinymce/tinymce.min.js"></script>
@@ -113,6 +112,5 @@ titleInput.addEventListener('input', function() {
 </script>
 
 <?php
-include(__DIR__ . '/../../inc/templates/manage/end.php');
-require_once(__DIR__ . '/../../inc/templates/footer.php')
+require_once(__DIR__ . '/../../inc/templates/manage/end.php');
 ?>
