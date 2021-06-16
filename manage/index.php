@@ -1,7 +1,7 @@
 <?php
 require_once('../inc/handlers/SessionHandler.php');
 $session = new Session;
-$session->protected_route();
+$session->protected_route('ACCESS_MANAGER');
 
 $title = 'My Account';
 
