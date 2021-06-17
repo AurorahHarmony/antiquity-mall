@@ -166,4 +166,32 @@ class UserService
       return false;
     }
   }
+
+  /**
+   * Returns an array of all users
+   */
+  static function get_all()
+  {
+    $db = new Database;
+    $user_array = $db->select('SELECT * FROM users JOIN roles ON roles.role_id = users.role_id');
+    return $user_array;
+  }
+
+  /**
+   * @param int $user_id The ID of the user you want to get.
+   * @return bool|array Returns false if a user is not found. Otherwise, returns an array of the user.
+   */
+  static function get_one(int $user_id)
+  {
+    $db = new Database;
+    $user = $db->select('SELECT * FROM users JOIN roles ON roles.role_id = users.role_id WHERE id = :id', ['id' => $user_id]);
+
+    if (empty($user)) {
+      return false;
+    }
+
+    return $user[0];
+  }
+
+  /**
 }
