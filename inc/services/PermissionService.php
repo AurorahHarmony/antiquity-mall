@@ -28,6 +28,34 @@ class PermissionService
   }
 
   /**
+   * Gets a list of the Permissions a role has
+   * @param int $role_id The ID of the role you are looking for
+   * @return array An array of the permissions the role has
+   */
+  public static function get_role_perm_array($role_id)
+  {
+    $db = new Database;
+    $perms = $db->select('SELECT permissions.perm_id FROM roles_permissions JOIN permissions ON roles_permissions.perm_id = permissions.perm_id WHERE role_id = :role_id', ['role_id' => $role_id]);
+
+    $perms_arr = [];
+
+    foreach ($perms as $perm) {
+      array_push($perms_arr, $perm['perm_id']);
+    }
+    return $perms_arr;
+  }
+
+  /**
+   * @return array Array of all permissions available
+   */
+  public static function get_all_permissions()
+  {
+    $db = new Database;
+    $all_perms = $db->select('SELECT * FROM permissions');
+    return $all_perms;
+  }
+
+  /**
    * @param int $user_id The ID of the user you want to check the permission for
    * @param string $perm_name The permission you want to check against
    * @param bool $get_fresh Should permissions be pulled freshly from the database?
