@@ -72,6 +72,13 @@ class PermissionService
     return $roles[0]['role_name'];
   }
 
+  public static function get_available_roles()
+  {
+    $db = new Database;
+    $roles = $db->select('SELECT * FROM roles');
+    return $roles;
+  }
+
   /**
    * Echos out a formatted error message stating the missing permissions
    */
