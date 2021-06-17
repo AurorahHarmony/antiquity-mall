@@ -113,7 +113,8 @@ class UserService
         'username' => $username,
         'email' => $email,
         'birthdate' => $dob,
-        'password' => password_hash($password, PASSWORD_DEFAULT)
+        'password' => password_hash($password, PASSWORD_DEFAULT),
+        'role_id' => 1
       ]);
       return true;
     } catch (\Throwable $th) {
