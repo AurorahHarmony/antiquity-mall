@@ -68,13 +68,14 @@ $uri = new URI;
           </li>
           <li class="mb-1">
             <button class="btn align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#users-collapse"
-              aria-expanded="false">
+              aria-expanded="<?= $uri->matches(['/manage/users', '/manage/users/edit-roles'], 'true', 'false') ?>">
               <i class="bi bi-caret-right-fill btn-toggle"></i> User Management
             </button>
-            <div class="collapse" id="users-collapse">
+            <div class="collapse <?= $uri->matches(['/manage/users', '/manage/users/edit-roles'], 'show') ?>"
+              id="users-collapse">
               <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                <li><a href="#" class="link-dark rounded">Active Users</a></li>
-                <li><a href="#" class="link-dark rounded">Banned Users</a></li>
+                <li><a href="/manage/users" class="link-dark rounded">Active Users</a></li>
+                <li><a href="/manage/users/edit-roles" class="link-dark rounded">Role Editor</a></li>
               </ul>
             </div>
           </li>
