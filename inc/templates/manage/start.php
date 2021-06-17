@@ -74,7 +74,7 @@ $uri = new URI;
             <div class="collapse <?= $uri->matches(['/manage/users', '/manage/users/edit-roles'], 'show') ?>"
               id="users-collapse">
               <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                <li><a href="/manage/users" class="link-dark rounded">Active Users</a></li>
+                <li><a href="/manage/users" class="link-dark rounded">All Users</a></li>
                 <li><a href="/manage/users/edit-roles" class="link-dark rounded">Role Editor</a></li>
               </ul>
             </div>

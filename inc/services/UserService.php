@@ -194,4 +194,21 @@ class UserService
   }
 
   /**
+   * @param int $user_id The id of the user to update
+   * @param Form $user_settings A form object with the settings you wish to change
+   * @return bool True if the user was successfully updated
+   */
+  static function update(int $user_id, Form $user_settings)
+  {
+    $new_role = $user_settings->get_value('role_id');
+
+    try {
+      $db = new Database;
+      $db->update('users', ['role_id' => $new_role], 'id = :user_id', ['user_id' => $user_id]);
+      return true;
+    } catch (\Throwable $th) {
+      $user_settings->general_error = 'Internal Server Error - ' . $th;
+      return false;
+    }
+  }
 }
