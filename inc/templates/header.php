@@ -29,6 +29,17 @@ function account_dropdown($add_w_class = false)
     <li>
       <hr class="dropdown-divider">
     </li>
+    <?php
+        require_once(__DIR__ . '/../services/PermissionService.php');
+        if (PermissionService::has_perm('ACCESS_MANAGER', $_SESSION['id'])) :
+        ?>
+    <li><a class="dropdown-item text-info" href="/manage">Management</a></li>
+    <li>
+      <hr class="dropdown-divider">
+    </li>
+    <?php
+        endif;
+        ?>
     <li><a class="dropdown-item text-danger" href="/logout">Logout</a></li>
   </ul>
 </li>
