@@ -8,7 +8,10 @@ require_once(__DIR__ . '/../../inc/templates/manage/start.php');
 
 
 require_once(__DIR__ . '/../../inc/services/PermissionService.php');
-$avail_roles = PermissionService::get_available_roles();
+$can_edit = PermissionService::has_perm('MANAGE_ROLES', $_SESSION['id']);
+
+if ($can_edit) :
+  $avail_roles = PermissionService::get_available_roles();
 ?>
 <select name="user_role" id="roleSelector" class="form-select mb-3">
   <option value="" disabled <?= !isset($_GET['id']) ? 'selected' : '' ?>>Please select a Role to modify</option>
@@ -20,10 +23,10 @@ $avail_roles = PermissionService::get_available_roles();
 </select>
 
 <?php
-if (isset($_GET['id'])) :
-  $role_perms = PermissionService::get_role_perm_array($_GET['id']);
-  $all_perms = PermissionService::get_all_permissions();
-?>
+  if (isset($_GET['id'])) :
+    $role_perms = PermissionService::get_role_perm_array($_GET['id']);
+    $all_perms = PermissionService::get_all_permissions();
+  ?>
 
 <form method="POST">
   <?php foreach ($all_perms as $avail_perm) : ?>
@@ -45,5 +48,9 @@ roleSelector.addEventListener('change', () => {
   window.location = '/manage/users/edit-roles?id=' + roleSelector.value;
 })
 </script>
+<?php
+else :
+  PermissionService::echo_insufficient_perm();
+endif; ?>
 
 <?php require_once(__DIR__ . '/../../inc/templates/manage/end.php'); ?>
