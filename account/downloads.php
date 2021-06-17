@@ -1,4 +1,8 @@
 <?php
+require_once('../inc/handlers/SessionHandler.php');
+$session = new Session;
+$session->protected_route();
+
 $title = 'My Downloads';
 
 require_once(__DIR__ . '/../inc/templates/header.php');
