@@ -15,6 +15,16 @@ class Session
 
   public function protected_route($required_perm = null, $get_fresh = false)
   {
+    require_once(__DIR__ . '/../services/PermissionService.php');
+    if (!empty($_SESSION['id'])) {
+      $is_banned = PermissionService::has_perm('LOGIN', $_SESSION['id']);
+      if ($is_banned === false) {
+        session_destroy();
+        http_response_code(404);
+        header('location: /');
+        exit;
+      }
+    }
 
     if ($required_perm == null) {
       if ($_SESSION['logged_in'] != true || empty($_SESSION['id'])) {
@@ -28,7 +38,7 @@ class Session
         header('location: /404');
         exit;
       } else {
-        require_once(__DIR__ . '/../services/PermissionService.php');
+
         if (!is_array($required_perm)) {
           $user_perms = PermissionService::has_perm($required_perm, $_SESSION['id'], $get_fresh);
           if ($user_perms == false) {
