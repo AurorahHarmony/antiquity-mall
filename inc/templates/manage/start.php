@@ -9,6 +9,8 @@ $title = $title ?? 'Site Management';
 require_once(__DIR__ . '/../../templates/header.php');
 
 $tab_name = $tab_name ?? 'dashboard';
+require_once(__DIR__ . '/../../classes/URI.php');
+$uri = new URI;
 ?>
 
 <style>
@@ -53,10 +55,11 @@ $tab_name = $tab_name ?? 'dashboard';
           </li>
           <li class="mb-1">
             <button class="btn align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#news-collapse"
-              aria-expanded="false">
+              aria-expanded="<?= $uri->matches(['/manage/posts', '/manage/posts/new'], 'true', 'false') ?>">
               <i class="bi bi-caret-right-fill btn-toggle"></i> News
             </button>
-            <div class="collapse" id="news-collapse">
+            <div class="collapse <?= $uri->matches(['/manage/posts', '/manage/posts/new'], 'show') ?>"
+              id="news-collapse">
               <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                 <li><a href="/manage/posts" class="link-dark rounded">All Posts</a></li>
                 <li><a href="/manage/posts/new" class="link-dark rounded">New Post</a></li>
