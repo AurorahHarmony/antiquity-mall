@@ -32,7 +32,7 @@ if (isset($_GET['id'])) :
       name="<?= $avail_perm['perm_name'] ?>"
       <?= (array_search($avail_perm['perm_id'], $role_perms) !== false) ? 'checked' : '' ?>>
     <label class="form-check-label" for="<?= $avail_perm['perm_name'] ?>">
-      <?= $avail_perm['perm_name'] ?>
+      <?= $avail_perm['perm_name'] ?> (<?= $avail_perm['perm_description'] ?>)
     </label>
   </div>
   <?php endforeach; ?>
