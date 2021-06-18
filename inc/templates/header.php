@@ -60,6 +60,7 @@ function account_dropdown($add_w_class = false)
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title><?php echo $title ?>DreamScape</title>
+  <link rel="shortcut icon" href="/static/img/favicon.png" type="image/x-icon">
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/@splidejs/splide@2.4.21/dist/css/splide.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
