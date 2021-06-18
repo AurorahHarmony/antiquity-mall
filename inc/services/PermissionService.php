@@ -117,4 +117,32 @@ class PermissionService
             <button class="btn btn-info" onclick="window.history.back()">&lt; Back</button>
           </div>';
   }
+
+  /**
+   * @param int $role_id The ID of the role to be updated
+   * @param array $new_perm_values an array of the permission name with its new value ('PERM_ID' => true|false) 
+   */
+
+  public static function update_perms($role_id, $new_perm_values = [], $callback = null)
+  {
+    $to_insert = [];
+    $to_delete = [];
+
+    foreach ($new_perm_values as $perm_id => $new_value_bool) {
+      if ($new_value_bool == true) {
+        array_push($to_insert, $perm_id);
+      } else {
+        array_push($to_delete, $perm_id);
+      }
+    }
+
+    $db = new Database;
+
+    foreach ($to_delete as $rem_perm_id) {
+      $db->delete('roles_permissions', 'role_id = :role_id AND perm_id = :perm_id', ['role_id' => $role_id, 'perm_id' => $rem_perm_id]);
+    }
+    foreach ($to_insert as $add_perm_id) {
+      $db->insert('roles_permissions', ['role_id' => $role_id, 'perm_id' => $add_perm_id], true);
+    }
+  }
 }

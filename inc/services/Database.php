@@ -39,15 +39,21 @@ class Database extends PDO
   /**
    * @param string $table The name of the table you want to insert into
    * @param array $data An associative array where the key is the column and the value is the value
+   * @param bool $ignore Whether the query should be ignored if it fails
    */
-  public function insert($table, $data)
+  public function insert($table, $data, $ignore = false)
   {
     ksort($data);
 
     $fieldNames = implode('`, `', array_keys($data));
     $fieldValues = ':' . implode(', :', array_keys($data));
 
-    $sth = $this->prepare("INSERT INTO $table (`$fieldNames`) VALUES ($fieldValues)");
+    $pre_query = "INSERT ";
+    if ($ignore == true) {
+      $pre_query .= "IGNORE ";
+    }
+
+    $sth = $this->prepare($pre_query . "INTO $table (`$fieldNames`) VALUES ($fieldValues)");
 
     foreach ($data as $key => $value) {
       $sth->bindValue(":$key", $value);
