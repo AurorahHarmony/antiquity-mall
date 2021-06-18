@@ -82,14 +82,14 @@ $uri = new URI;
           <li class="mb-1">
             <button class="btn align-items-center rounded" data-bs-toggle="collapse"
               data-bs-target="#downloads-collapse"
-              aria-expanded="<?= $uri->matches(['/manage/downloads', '/manage/downloads/upload'], 'true', 'false') ?>">
+              aria-expanded="<?= $uri->matches(['/manage/downloads/windows', '/manage/downloads/mac'], 'true', 'false') ?>">
               <i class="bi bi-caret-right-fill btn-toggle"></i> Download Management
             </button>
-            <div class="collapse <?= $uri->matches(['/manage/downloads', '/manage/downloads/upload'], 'show') ?>"
+            <div class="collapse <?= $uri->matches(['/manage/downloads/windows', '/manage/downloads/mac'], 'show') ?>"
               id="downloads-collapse">
               <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                <li><a href="/manage/downloads" class="link-dark rounded">Version Management</a></li>
-                <li><a href="/manage/downloads/upload" class="link-dark rounded">Upload Version</a></li>
+                <li><a href="/manage/downloads/windows" class="link-dark rounded">Windows</a></li>
+                <li><a href="/manage/downloads/mac" class="link-dark rounded">Mac</a></li>
               </ul>
             </div>
           </li>
