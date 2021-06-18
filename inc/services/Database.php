@@ -53,7 +53,7 @@ class Database extends PDO
       $pre_query .= "IGNORE ";
     }
 
-    $sth = $this->prepare($pre_query . "INTO $table (`$fieldNames`) VALUES ($fieldValues)");
+    $sth = $this->prepare($pre_query . "INTO $table (`$fieldNames`) VALUES ($fieldValues) RETURNING id");
 
     foreach ($data as $key => $value) {
       $sth->bindValue(":$key", $value);
@@ -62,6 +62,8 @@ class Database extends PDO
     if (!$sth->execute()) {
       $this->handleError();
       // print_r($sth->errorInfo());
+    } else {
+      return $sth->fetchAll(PDO::FETCH_ASSOC)[0];
     }
   }
 
