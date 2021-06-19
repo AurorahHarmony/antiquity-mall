@@ -19,7 +19,6 @@ if ($can_edit) :
     unset($_POST['id']);
     $all_perms = PermissionService::get_all_permissions($role_id);
 
-
     $new_values = [];
 
     foreach ($all_perms as $perm) {
@@ -32,8 +31,7 @@ if ($can_edit) :
     }
     PermissionService::update_perms($role_id, $new_values);
   }
-?>
-<select name="user_role" id="roleSelector" class="form-select mb-3">
+?><select name="user_role" id="roleSelector" class="form-select mb-3">
   <option value="" disabled <?= !isset($_GET['id']) ? 'selected' : '' ?>>Please select a Role to modify</option>
   <?php foreach ($avail_roles as $role) : ?>
   <option value="<?= $role['role_id'] ?>"
@@ -61,7 +59,7 @@ if ($can_edit) :
     </div>
     <?php endforeach; ?>
   </div>
-  <input type="hidden" name="id" value="<?= isset($_GET['id']) ?>">
+  <input type="hidden" name="id" value="<?= $_GET['id'] ?>">
   <button type="submit" class="btn btn-success px-5">Save</button>
 </form>
 <?php endif; ?>
