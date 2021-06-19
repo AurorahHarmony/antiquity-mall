@@ -86,8 +86,8 @@ $active_version = $active_version[0] ?? null;
         <select name="active_version" id="active_version" class="form-select">
           <option value="none">None</option>
           <?php foreach ($all_uploaded as $upload) : ?>
-          <option value="<?= $upload['version_number'] ?>"
-            <?= (!empty($active_version['version_id']) && $active_version['version_id'] == $upload['version_number']) ? 'selected' : '' ?>>
+          <option value="<?= $upload['id'] ?>"
+            <?= (!empty($active_version['version_id']) && $active_version['version_id'] == $upload['id']) ? 'selected' : '' ?>>
             Version:
             <?= $upload['version_number'] ?></option>
           <?php endforeach; ?>
