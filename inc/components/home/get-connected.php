@@ -6,7 +6,7 @@
           </div>
           <div class="col-md-5">
             <div class="play-now-btn-hover">
-              <a href="#" class="play-now-btn">
+              <a href="/account/downloads" class="play-now-btn">
                 <div class="play-now-btn-text">PLAY NOW</div>
               </a>
             </div>
