@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
       $db = new Database;
       $db->beginTransaction();
-      $uploaded_details = $db->insert('uploads', ['file_name' => $new_filename, 'uploader_id' => $_SESSION['id']]);
+      $uploaded_details = $db->insert('uploads', ['file_name' => $new_filename, 'uploader_id' => $_SESSION['id']])[0];
       $db->insert('game_versions', ['platform_name' => 'mac', 'version_number' => $latest_version_num, 'upload_id' => $uploaded_details['id']]);
       $db->commit();
       if (move_uploaded_file($_FILES["file_upload"]["tmp_name"], $target_file)) {
