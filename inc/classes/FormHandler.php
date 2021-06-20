@@ -67,7 +67,7 @@ class Form
     if (!empty($input_name) && !empty($this->errors($input_name))) {
       return true;
     } else {
-      if (!empty($general_error)) {
+      if (!empty($this->general_error)) {
         return true;
       }
 
