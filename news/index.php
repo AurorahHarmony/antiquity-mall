@@ -17,7 +17,10 @@ $all_posts = PostService::get_all();
           <h2 class="mb-0 text-capitalize"><?= $post['title'] ?></h2>
           <span
             class="badge gradient-pinkorange mb-1"><?= date_format(new DateTime($post['publish_date']), 'd M, Y') ?></span>
-          <p><a href="/news/article?id=<?= $post['id'] ?>">[Read More]</a>
+          <p>
+            <?= $post['excerpt'] ?>
+            <br>
+            <a href="/news/article?id=<?= $post['id'] ?>">[Read More]</a>
           </p>
         </div>
         <hr>
