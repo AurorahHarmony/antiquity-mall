@@ -32,12 +32,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (
       $fileType != "zip"
     ) {
-      echo "Sorry, only .zip files are allowed.";
+      echo "<div class='alert alert-danger' role='alert'>Sorry, only .zip files are allowed.</div>";
       $uploadOk = 0;
     }
 
     if ($uploadOk == 0) {
-      echo "Sorry, your file was not uploaded.";
+      echo "<div class='alert alert-danger' role='alert'>Sorry, your file was not uploaded.</div>";
     } else {
       $db = new Database;
       $db->beginTransaction();
@@ -45,9 +45,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $db->insert('game_versions', ['platform_name' => 'windows', 'version_number' => $latest_version_num, 'upload_id' => $uploaded_details['id']]);
       $db->commit();
       if (move_uploaded_file($_FILES["file_upload"]["tmp_name"], $target_file)) {
-        echo "The file " . htmlspecialchars(basename($_FILES["file_upload"]["name"])) . " has been uploaded successfully!";
+        echo "<div class='alert alert-success' role='alert'>The file " . htmlspecialchars(basename($_FILES["file_upload"]["name"])) . " has been uploaded successfully!</div>";
       } else {
-        echo "Sorry, there was an error uploading your file.";
+        echo "<div class='alert alert-danger' role='alert'>Sorry, there was an error uploading your file.</div>";
       }
     }
   }
