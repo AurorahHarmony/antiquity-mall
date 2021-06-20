@@ -13,7 +13,7 @@ class Session
    * @param bool $get_fresh Should we force the system to get fresh user perms from the database?
    */
 
-  public function protected_route($required_perm = null, $get_fresh = false)
+  public function protected_route($required_perm = null, $get_fresh = false, $redired_route = '')
   {
     require_once(__DIR__ . '/../services/PermissionService.php');
     if (!empty($_SESSION['id'])) {
@@ -29,7 +29,7 @@ class Session
     if ($required_perm == null) {
       if ($_SESSION['logged_in'] != true || empty($_SESSION['id'])) {
         http_response_code(403);
-        header('location: /login');
+        header('location: /login' . $redired_route);
         exit;
       }
     } else {

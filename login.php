@@ -9,12 +9,24 @@ $form = new Form($values);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-
   require_once('inc/services/UserService.php');
   $validated = UserService::validate($form);
 
   if ($validated === true) {
-    header('location: /account');
+
+    switch ($_POST['redirect']) {
+      case 'downloads':
+        header('location: /account/downloads');
+        break;
+
+      case 'article':
+        header('location: /news/article?id=' . $_POST['id']);
+        break;
+
+      default:
+        header('location: /account');
+        break;
+    }
     exit;
   }
 }
@@ -43,6 +55,8 @@ require_once('inc/templates/header.php');
             <input type="password" name="password" class="form-control" id="password" placeholder="Password">
             <label for="password">Password</label>
           </div>
+          <input type="hidden" name="redirect" value="<?= $_GET['redirect'] ?>">
+          <input type="hidden" name="id" value="<?= $_GET['id'] ?>">
           <button type="submit" class="btn btn-primary w-100">Sign In</button>
           <hr>
           <div class="text-center">

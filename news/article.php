@@ -71,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['new_comment']) && isse
     <button type="submit" class="btn btn-primary px-5">Add Comment</button>
   </form>
   <?php else : ?>
-  <a href="/login" class="btn btn-primary px-5 mb-4">Login to Comment</a>
+  <a href="/login?redirect=article&id=<?= $_GET['id'] ?>" class="btn btn-primary px-5 mb-4">Login to Comment</a>
   <?php endif; ?>
 
   <table class="table table-striped">
