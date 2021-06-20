@@ -22,7 +22,8 @@ if ($can_edit) :
     $article_values = [
       'title' => $post_data['title'],
       'content' => $post_data['content'],
-      'post_id' => $post_data['id']
+      'post_id' => $post_data['id'],
+      'excerpt' => $post_data['excerpt']
     ];
     $article_data = new Form($article_values);
   }
@@ -33,7 +34,8 @@ if ($can_edit) :
     require_once(__DIR__ . '/../../inc/services/PostService.php');
     $article_values = [
       'title' => $_POST['title'] ?? '',
-      'content' => $_POST['content'] ?? ''
+      'content' => $_POST['content'] ?? '',
+      'excerpt' => $_POST['excerpt']
     ];
     $article_data = new Form($article_values);
     $updated = PostService::update($_POST['post_id'], $article_data);

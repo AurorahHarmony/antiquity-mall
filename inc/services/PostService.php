@@ -20,6 +20,7 @@ class PostService
 
     $sanitized_input = self::sanitize_post_fields($form);
     $san_title = $sanitized_input['title'];
+    $san_excerpt = $sanitized_input['excerpt'];
     $san_content = $sanitized_input['content'];
 
     $user_id = $form->get_value('user_id');
@@ -30,6 +31,7 @@ class PostService
       $db->insert('posts', [
         'title' => $san_title,
         'author_id' => $user_id,
+        'excerpt' => $san_excerpt,
         'content' => $san_content
       ]);
 
@@ -55,16 +57,24 @@ class PostService
 
     $sanitized_input = self::sanitize_post_fields($form);
     $san_title = $sanitized_input['title'];
+    $san_excerpt = $sanitized_input['excerpt'];
     $san_content = $sanitized_input['content'];
 
-    //Update the post
-    try {
-      $db = new Database;
-      $db->update('posts', ['title' => $san_title, 'content' => $san_content], 'id = :post_id', ['post_id' => $post_id]);
-      return true;
-    } catch (\Throwable $th) {
-      $form->general_error = 'Internal Server Error - ' . $th;
+    // echo $san_excerpt;
+    // return false;
+
+    if ($form->has_errors()) {
       return false;
+    } else {
+      //Update the post
+      try {
+        $db = new Database;
+        $db->update('posts', ['title' => $san_title, 'excerpt' => $san_excerpt, 'content' => $san_content], 'id = :post_id', ['post_id' => $post_id]);
+        return true;
+      } catch (\Throwable $th) {
+        $form->general_error = 'Internal Server Error - ' . $th;
+        return false;
+      }
     }
   }
 
@@ -74,10 +84,19 @@ class PostService
   private static function validate_post_fields(Form $form)
   {
     $title = trim($form->get_value('title'));
+    $excerpt = trim($form->get_value('excerpt'));
     $content = $form->get_value('content');
 
     if (empty($title)) {
       $form->add_error('title', 'The post must have a title');
+    }
+
+    if (empty($excerpt)) {
+      $form->add_error('excerpt', 'The excerpt cannot be empty');
+    }
+
+    if (strlen($excerpt) > 255) {
+      $form->add_error('excerpt', 'The excerpt must be less than 255 characters');
     }
 
     if (empty($content)) {
@@ -96,6 +115,10 @@ class PostService
     $title = trim($form->get_value('title'));
     $sanitized_title = htmlspecialchars($title);
 
+    //Sanitize the Excerpt
+    $excerpt = trim($form->get_value('excerpt'));
+    $sanitized_excerpt = strip_tags(stripslashes($excerpt));
+
     //Sanitize the Content
     $content = $form->get_value('content');
     $allowedTags = '<p><strong><em><u><h1><h2><h3><h4><h5><h6><img>';
@@ -104,7 +127,8 @@ class PostService
 
     return [
       'title' => $sanitized_title,
-      'content' =>  $sanitized_content
+      'content' =>  $sanitized_content,
+      'excerpt' => $sanitized_excerpt
     ];
   }
 

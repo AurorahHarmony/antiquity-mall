@@ -11,6 +11,7 @@ if ($can_edit) :
   $article_values = [
     'title' => $_POST['title'] ?? '',
     'user_id' => $_SESSION['id'],
+    'excerpt' => $_POST['excerpt'],
     'content' => $_POST['content'] ?? ''
   ];
   $article_data = new Form($article_values);
