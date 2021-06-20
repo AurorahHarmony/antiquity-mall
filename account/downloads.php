@@ -19,21 +19,31 @@ $mac_version = $db->select('SELECT * FROM active_versions JOIN game_versions ON 
 $mac_version = $mac_version[0] ?? null;
 ?>
 
-<h2>All Versions</h2>
+<h2 class="mb-5 text-center">All Versions</h2>
 <div class="row">
   <?php if (!empty($windows_version)) : ?>
-  <div class="col-md-6">
-    Windows Download
-    <a href="/uploads/<?= $windows_version['file_name'] ?>">Version <?= $windows_version['version_number'] ?></a>
+  <div class="col-md-6 text-center">
+    <a href="/uploads/<?= $windows_version['file_name'] ?>">
+      <img src="/static/img/windows_logo.svg" style="height: 135px" class="mb-3" alt="Windows Logo">
+    </a>
+    <p class="mb-1">
+      Windows Download
+      <a href="/uploads/<?= $windows_version['file_name'] ?>">Version <?= $windows_version['version_number'] ?></a>
+    </p>
     <p class="text-muted">Created On <?= date_format(new DateTime($windows_version['created']), "g:ia - j/m/Y") ?></p>
   </div>
   <?php
   endif;
   if (!empty($mac_version)) :
   ?>
-  <div class="col-md-6">
-    Mac Download
-    <a href="/uploads/<?= $mac_version['file_name'] ?>">Version <?= $mac_version['version_number'] ?></a>
+  <div class="col-md-6 text-center">
+    <a href="/uploads/<?= $mac_version['file_name'] ?>">
+      <img src="/static/img/apple_logo.svg" style="height: 135px" class="mb-3" alt="Apple Logo">
+    </a>
+    <p class="mb-1">
+      Mac Download
+      <a href="/uploads/<?= $mac_version['file_name'] ?>">Version <?= $mac_version['version_number'] ?></a>
+    </p>
     <p class="text-muted">Created On <?= date_format(new DateTime($mac_version['created']), "g:ia - j/m/Y") ?></p>
   </div>
   <?php endif; ?>
