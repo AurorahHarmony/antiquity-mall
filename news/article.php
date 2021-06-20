@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['new_comment']) && isse
     <div class="mb-2">
       <div class="form-floating">
         <textarea class="form-control <?php $new_comment->echo_valid_class('comment', true) ?>"
-          placeholder="Add a comment here" name="new_comment" id="new_comment"></textarea>
+          placeholder="Add a comment here" name="new_comment" id="new_comment" style="height: 100px"></textarea>
         <label for="floatingTextarea">Add Comment</label>
         <?php $new_comment->echo_formatted_errors('comment') ?>
       </div>
