@@ -1,0 +1,12 @@
+CREATE TABLE comments (
+  id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  post_id INT UNSIGNED NOT NULL,
+  user_id BIGINT UNSIGNED NOT NULL,
+  comment VARCHAR(255) NOT NULL,
+  created TIMESTAMP NOT NULL DEFAULT NOW(),
+  PRIMARY KEY (id),
+  CONSTRAINT `fk_comment_post_id`
+    FOREIGN KEY (post_id) REFERENCES posts (id) ON DELETE CASCADE,
+  CONSTRAINT `fk_comment_user_id`
+    FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
+)
