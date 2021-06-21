@@ -27,7 +27,10 @@ $all_posts = PostService::get_all();
         <?php endforeach; ?>
       </div>
       <div class="col-md-4 col-lg-3">
-        Sidebar</div>
+        <a href="/external" target="__blank" rel="noopener">
+          <img src="/static/img/upsilon-advert.png" class="w-100 border border-primary" alt="Upsilon Advert">
+        </a>
+      </div>
     </div>
   </div>
 </div>
