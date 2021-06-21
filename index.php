@@ -98,13 +98,16 @@ $latest_posts = PostService::get_all('publish_date', 'DESC', 3);
           <div class="social-buttons">
             <div class="row justify-content-center">
               <div class="col-sm-6 col-xl-4">
-                <a href="/external"><img src="/static/img/social-twitter.png" alt="Dreamscape's Twitter" /></a>
+                <a href="https://twitter.com/theDreamscape" target="__blank" rel="noopener"><img
+                    src="/static/img/social-twitter.png" alt="Dreamscape's Twitter" /></a>
               </div>
               <div class="col-sm-6 col-xl-4">
-                <a href="/external"><img src="/static/img/social-youtube.png" alt="Dreamscape's YouTube" /></a>
+                <a href="/external" target="__blank" rel="noopener"><img src="/static/img/social-youtube.png"
+                    alt="Dreamscape's YouTube" /></a>
               </div>
               <div class="col-sm-6 col-xl-4">
-                <a href="/external"><img src="/static/img/social-patreon.png" alt="Dreamscape's Patreon" /></a>
+                <a href="/external" target="__blank" rel="noopener"><img src="/static/img/social-patreon.png"
+                    alt="Dreamscape's Patreon" /></a>
               </div>
             </div>
           </div>
