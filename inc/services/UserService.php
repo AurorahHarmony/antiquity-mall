@@ -185,7 +185,7 @@ class UserService
   static function get_one(int $user_id)
   {
     $db = new Database;
-    $user = $db->select('SELECT username, email, role_name FROM users JOIN roles ON roles.role_id = users.role_id WHERE id = :id', ['id' => $user_id]);
+    $user = $db->select('SELECT id, username, email, users.role_id, role_name FROM users JOIN roles ON roles.role_id = users.role_id WHERE id = :id', ['id' => $user_id]);
 
     if (empty($user)) {
       return false;
