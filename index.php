@@ -54,35 +54,29 @@ $latest_posts = PostService::get_all('publish_date', 'DESC', 3);
 <img src="/static/img/features-crop-top.svg" width="100%" style="margin-bottom: -2px" />
 <div id="features" class="bg-lavender py-5">
   <div class="container features-container p-5">
-    <div class="row justify-content-center">
-      <div class="col-md-3"></div>
-      <div class="col-md-6">
-        <p class="h2">Feature</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt soluta eligendi consequatur corrupti eius vitae
-          quod quidem ut facilis voluptas dolores, veritatis similique dolorum exercitationem possimus eum magni
-          reprehenderit impedit?</p>
+
+    <div class="row text-center">
+
+      <div class="col-sm-6 col-md-4">
+        <img src="/static/img/features-icons/keyboard.svg" alt="Keyboard"
+          style="max-width: 100%; height: 150px; margin-bottom: 1.5rem">
+        <p class="h2">Accessible</p>
+        <p>Don't Have a VR Headset? Dreamscape can be played with a Keyboard, Mouse, Or Controller.</p>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <img src="/static/img/features-icons/global-network.svg" alt="Network"
+          style="max-width: 100%; height: 150px; margin-bottom: 1.5rem">
+        <p class="h2">Social Metaverse</p>
+        <p>Arcades, Shopping Districts, Customizable Apartments, Mini Games and More.</p>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <img src="/static/img/features-icons/user-interface.svg" alt="User Interface"
+          style="max-width: 100%; height: 150px; margin-bottom: 1.5rem">
+        <p class="h2">Easy to Use</p>
+        <p>Intuitive customisation and tools designed for use by gamers who aren't necessarily developers.</p>
       </div>
     </div>
-    <hr />
-    <div class="row justify-content-center">
-      <div class="col-md-6">
-        <p class="h2">Feature</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt soluta eligendi consequatur corrupti eius vitae
-          quod quidem ut facilis voluptas dolores, veritatis similique dolorum exercitationem possimus eum magni
-          reprehenderit impedit?</p>
-      </div>
-      <div class="col-md-3"></div>
-    </div>
-    <hr />
-    <div class="row justify-content-center">
-      <div class="col-md-3"></div>
-      <div class="col-md-6">
-        <p class="h2">Feature</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt soluta eligendi consequatur corrupti eius vitae
-          quod quidem ut facilis voluptas dolores, veritatis similique dolorum exercitationem possimus eum magni
-          reprehenderit impedit?</p>
-      </div>
-    </div>
+
   </div>
 </div>
 <img src="/static/img/features-crop-bottom.svg" width="100%" style="margin-top: -2px" />
@@ -147,7 +141,7 @@ $latest_posts = PostService::get_all('publish_date', 'DESC', 3);
 <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
 <script>
 new Splide('.splide', {
-  type: 'fade',
+  type: 'loop',
   autoplay: true,
   rewind: true,
   speed: 1000,
