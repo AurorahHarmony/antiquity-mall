@@ -14,16 +14,21 @@ $all_posts = PostService::get_all();
       <div class="col-md-8 col-lg-9">
         <?php foreach ($all_posts as $post) : ?>
         <div class="article-preview">
-          <h2 class="mb-0 text-capitalize"><?= $post['title'] ?></h2>
+          <a href="/news/article?id=<?= $post['id'] ?>" class="text-decoration-none">
+            <h2 class="mb-0 text-capitalize"><?= $post['title'] ?></h2>
+          </a>
           <span
             class="badge gradient-pinkorange mb-1"><?= date_format(new DateTime($post['publish_date']), 'd M, Y') ?></span>
           <p>
             <?= $post['excerpt'] ?>
-            <br>
-            <a href="/news/article?id=<?= $post['id'] ?>">[Read More]</a>
           </p>
+          <div class="d-flex">
+            <a href="/news/article?id=<?= $post['id'] ?>" class="readmore-btn">
+              <div class="readmore-btn-text">Read More</div>
+            </a>
+          </div>
         </div>
-        <hr>
+        <hr class="my-5">
         <?php endforeach; ?>
       </div>
       <div class="col-md-4 col-lg-3">

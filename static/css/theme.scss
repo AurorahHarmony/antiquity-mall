@@ -258,6 +258,33 @@ html {
 	}
 }
 
+.readmore-btn {
+	display: flex;
+	height: 50px;
+	width: 100%;
+	background-image: url('/static/img/play-now-bg.svg');
+	background-repeat: no-repeat;
+	background-size: 100% 90px;
+	text-decoration: none;
+	transition-duration: 700ms;
+
+	&:hover {
+		// transform: scale(1.03);
+		filter: hue-rotate(-90deg);
+	}
+
+	.readmore-btn-text {
+		color: $white;
+		display: inline-block;
+		vertical-align: middle;
+		align-self: center;
+		text-align: center;
+		font-size: 1.25rem;
+		font-weight: 900;
+		width: 100%;
+	}
+}
+
 footer {
 	li {
 		margin-bottom: 0.5rem;
