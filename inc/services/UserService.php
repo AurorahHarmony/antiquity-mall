@@ -199,6 +199,79 @@ class UserService
    * @param Form $user_settings A form object with the settings you wish to change
    * @return bool True if the user was successfully updated
    */
+  static function update(int $user_id, Form $user_settings)
+  {
+    $email = $user_settings->get_value('email');
+    $new_password = $user_settings->get_value('new_password');
+    $confirm_new_password = $user_settings->get_value('confirm_new_password');
+    $current_password = $user_settings->get_value('current_password');
+
+    $final_new_settings = [];
+
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) { //Check if email format is valid
+      $user_settings->add_error('email', 'Email Address is invalid.');
+    } else {
+      $db = new Database;
+      $users = $db->select('SELECT id, email FROM users WHERE email = :email', ['email' => $email]);
+      if (!empty($users) && $users[0]['id'] != $user_id) { //Check if a user with this email already exits
+        $user_settings->add_error('email', 'Email already registered by another user.');
+      } else {
+        $final_new_settings['email'] = $email;
+      }
+    }
+
+    //Password Validation
+    if (!empty($new_password) || !empty($confirm_new_password)) { //If either change password field isn't empty
+
+      if (strlen($new_password) < 6) { //Password must be longer than 6 chars
+        $user_settings->add_error('new_password', 'Password must be at least 6 Characters long.');
+      }
+
+      $lowercase = preg_match("/[a-z]/", $new_password);
+      $other_text = preg_match("/[^a-z]/", $new_password);
+      if (!$lowercase || !$other_text) { //Password must have one number
+        $user_settings->add_error('new_password', 'Password must contain one lower case and an uppercase, number or symbol character.');
+      }
+
+      if (preg_match("/(.)\\1{2}/", $new_password)) { //Dissallow repeating characters
+        $user_settings->add_error('new_password', 'You cannot repeat the same character more than twice.');
+      }
+
+      if ($new_password != $confirm_new_password) { //Passwords must match
+        $user_settings->add_error('new_password', 'Passwords do not match.');
+        $user_settings->add_error('confirm_new_password', 'Passwords do not match.');
+      }
+
+      $final_new_settings['password'] = password_hash($new_password, PASSWORD_DEFAULT);
+    }
+
+    if ($user_settings->has_errors()) {
+      return false;
+    }
+
+    //Validate the user's current password
+    $user_credentials = new Form(['username' => $_SESSION['username'], 'password' => $current_password]);
+    if (self::validate($user_credentials)) {
+
+      try {
+        $db = new Database;
+        $db->update('users', $final_new_settings, 'id = :user_id', ['user_id' => $user_id]);
+        return true;
+      } catch (\Throwable $th) {
+        $user_settings->general_error = 'Internal Server Error - ' . $th;
+        return false;
+      }
+    } else {
+      $user_settings->add_error('current_password', 'Your password was incorrect');
+      return false;
+    }
+  }
+
+  /**
+   * @param int $user_id The id of the user to update
+   * @param Form $user_settings A form object with the settings you wish to change
+   * @return bool True if the user was successfully updated
+   */
   static function admin_update(int $user_id, Form $user_settings)
   {
     $new_role = $user_settings->get_value('role_id');
