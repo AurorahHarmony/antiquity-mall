@@ -138,7 +138,7 @@ class PostService
    * @param string[DESC|ASC] $order_by_order The Order in which to order by 
    * @return array of All posts
    */
-  public static function get_all($order_by_column = 'publish_date', $order_by_order = 'DESC')
+  public static function get_all($order_by_column = 'publish_date', $order_by_order = 'DESC', int $limit = null)
   {
     //Secure Column to Order by param
     $columns = ['publish_date', 'id'];
@@ -150,8 +150,13 @@ class PostService
     $direction_key = array_search($order_by_order, $directions);
     $order_direction = $directions[$direction_key];
 
+    $limit_query = '';
+    if ($limit !== null) {
+      $limit_query = "LIMIT " . (string) $limit;
+    }
+
     $db = new Database;
-    $all_posts = $db->select("SELECT * FROM posts ORDER BY $order_column $order_direction");
+    $all_posts = $db->select("SELECT * FROM posts ORDER BY $order_column $order_direction  $limit_query");
     return $all_posts;
   }
 
