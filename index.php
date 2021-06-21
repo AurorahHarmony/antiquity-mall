@@ -17,55 +17,33 @@ require_once('inc/templates/header.php') ?>
 </div>
 
 <!-- News Feed -->
+<?php
+require_once(__DIR__ . '/inc/services/PostService.php');
+$latest_posts = PostService::get_all('publish_date', 'DESC', 3);
+?>
+
 <div id="newsFeed" class="py-5">
   <div class="container">
+    <h2 class="text-center mb-4">Latest News</h2>
+
     <div class="splide">
       <div class="splide__track">
         <ul class="splide__list">
+          <?php foreach ($latest_posts as $post) : ?>
           <li class="splide__slide">
             <div class="row justify-content-center">
-              <div class="col-md-4 col-lg-3 order-md-2">
+              <!-- <div class="col-md-4 col-lg-3 order-md-2">
                 <div style="background-color: rgb(54, 54, 54); width: 100%; height: 200px"></div>
-              </div>
+              </div> -->
               <div class="col-md-8 col-lg-6 order-md-1">
-                <h2 class="mb-0">News Feed Title 1</h2>
-                <span class="badge gradient-pinkorange mb-1">1 Jan, 2020</span>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus totam repellendus possimus hic
-                  aliquid praesentium, obcaecati perspiciatis. Deserunt libero, error explicabo ratione laborum, tempora
-                  nulla ipsam nobis, porro possimus quisquam!... <a href="#">[Read More]</a></p>
+                <h2 class="mb-0"><?= $post['title'] ?></h2>
+                <span
+                  class="badge gradient-pinkorange mb-1"><?= date_format(new DateTime($post['publish_date']), 'd M, Y') ?></span>
+                <p><?= $post['excerpt'] ?> <a href="/news/article?id=<?= $post['id'] ?>">[Read More]</a></p>
               </div>
             </div>
           </li>
-
-          <li class="splide__slide">
-            <div class="row justify-content-center">
-              <div class="col-md-4 col-lg-3 order-md-2">
-                <div style="background-color: rgb(82, 12, 72); width: 100%; height: 200px"></div>
-              </div>
-              <div class="col-md-8 col-lg-6 order-md-1">
-                <h2 class="mb-0">News Feed Title 2</h2>
-                <span class="badge gradient-pinkorange mb-1">1 Jan, 2020</span>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus totam repellendus possimus hic
-                  aliquid praesentium, obcaecati perspiciatis. Deserunt libero, error explicabo ratione laborum, tempora
-                  nulla ipsam nobis, porro possimus quisquam!... <a href="#">[Read More]</a></p>
-              </div>
-            </div>
-          </li>
-
-          <li class="splide__slide">
-            <div class="row justify-content-center">
-              <div class="col-md-4 col-lg-3 order-md-2">
-                <div style="background-color: rgb(0, 58, 97); width: 100%; height: 200px"></div>
-              </div>
-              <div class="col-md-8 col-lg-6 order-md-1">
-                <h2 class="mb-0">News Feed Title 3</h2>
-                <span class="badge gradient-pinkorange mb-1">1 Jan, 2020</span>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus totam repellendus possimus hic
-                  aliquid praesentium, obcaecati perspiciatis. Deserunt libero, error explicabo ratione laborum, tempora
-                  nulla ipsam nobis, porro possimus quisquam!... <a href="#">[Read More]</a></p>
-              </div>
-            </div>
-          </li>
+          <?php endforeach; ?>
         </ul>
       </div>
     </div>
