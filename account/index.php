@@ -10,6 +10,7 @@ include(__DIR__ . '/../inc/templates/account/start.php');
 ?>
 
 <p>Welcome, <b><?php echo $_SESSION['username'] ?? 'username' ?></b>.</p>
+<p>Please use the navigation links on the sidebar.</p>
 
 
 <?php
