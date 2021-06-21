@@ -199,7 +199,7 @@ class UserService
    * @param Form $user_settings A form object with the settings you wish to change
    * @return bool True if the user was successfully updated
    */
-  static function update(int $user_id, Form $user_settings)
+  static function admin_update(int $user_id, Form $user_settings)
   {
     $new_role = $user_settings->get_value('role_id');
 

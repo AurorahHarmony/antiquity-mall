@@ -23,7 +23,7 @@ if ($can_edit) :
     $user_settings->set_value('role_id', (int) $_POST['user_role']);
 
     require_once(__DIR__ . '/../../inc/services/UserService.php');
-    $updated = UserService::update($_POST['user_id'], $user_settings);
+    $updated = UserService::admin_update($_POST['user_id'], $user_settings);
 
     if ($updated === true) {
       header('location: /manage/users/');
