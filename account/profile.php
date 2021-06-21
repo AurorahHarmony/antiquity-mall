@@ -27,6 +27,8 @@ $current_profile = UserService::get_one($_SESSION['id']);
 //Set form fields based on current information
 $form->set_value('email', $current_profile['email']);
 
+$updated = false;
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $form->set_value('email', trim($_POST['email']));
   $form->set_value('new_password', $_POST['new_password']);
