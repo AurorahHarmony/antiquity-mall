@@ -83,54 +83,97 @@ html {
 	padding: 0;
 	margin-top: -0.5rem;
 	margin-bottom: -0.5rem;
+	margin-right: 0;
 
-	.navbar-brand-bg {
-		background-color: #ebebeb;
+	.logo-desktop,
+	.logo-tablet {
+		display: none;
+	}
+
+	.logo-mobile {
+		height: 75px;
+		margin-bottom: -15px;
 		margin-left: -($grid-gutter-width / 2);
-		padding: 0.5rem 1rem;
-		margin-bottom: -0.4rem;
-
-		img {
-			width: 200px;
-			height: 46px;
-		}
+		margin-right: 0;
 	}
 
 	@include media-breakpoint-up(sm) {
-		.navbar-brand-bg {
-			padding: 0.8rem 1.5rem;
-			margin-bottom: -1.7rem;
-
-			img {
-				width: 280px;
-				height: 60px;
-			}
+		.logo-mobile {
+			margin-bottom: -17px;
+			height: 80px;
 		}
 	}
 
 	@include media-breakpoint-up(md) {
-		.navbar-brand-bg {
-			margin-left: unset;
-			margin-bottom: -0.3rem;
-
-			img {
-				width: 300px;
-				height: 65px;
-			}
+		.logo-mobile {
+			display: none;
+		}
+		.logo-tablet {
+			display: inline-block;
+			height: 110px;
+			margin-bottom: -23px;
 		}
 	}
 
-	@include media-breakpoint-up(lg) {
-		.navbar-brand-bg {
-			padding: 1rem 2rem;
-			margin-bottom: -1.3rem;
+	@include media-breakpoint-up(xl) {
+		.logo-tablet {
+			display: none;
+		}
 
-			img {
-				width: 360px;
-				height: 80px;
-			}
+		.logo-desktop {
+			display: inline-block;
+			height: 110px;
+			margin-bottom: -30px;
 		}
 	}
+
+	// .navbar-brand-bg {
+	// 	background-color: #ebebeb;
+	// 	margin-left: -($grid-gutter-width / 2);
+	// 	padding: 0.5rem 1rem;
+	// 	margin-bottom: -0.4rem;
+
+	// 	img {
+	// 		width: 200px;
+	// 		height: 46px;
+	// 	}
+	// }
+
+	// @include media-breakpoint-up(sm) {
+	// 	.navbar-brand-bg {
+	// 		padding: 0.8rem 1.5rem;
+	// 		margin-bottom: -1.7rem;
+
+	// 		img {
+	// 			width: 280px;
+	// 			height: 60px;
+	// 		}
+	// 	}
+	// }
+
+	// @include media-breakpoint-up(md) {
+	// 	.navbar-brand-bg {
+	// 		margin-left: unset;
+	// 		margin-bottom: -0.3rem;
+
+	// 		img {
+	// 			width: 300px;
+	// 			height: 65px;
+	// 		}
+	// 	}
+	// }
+
+	// @include media-breakpoint-up(lg) {
+	// 	.navbar-brand-bg {
+	// 		padding: 1rem 2rem;
+	// 		margin-bottom: -1.3rem;
+
+	// 		img {
+	// 			width: 360px;
+	// 			height: 80px;
+	// 		}
+	// 	}
+	// }
 }
 
 .get-connected {

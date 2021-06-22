@@ -89,11 +89,14 @@ function account_dropdown($add_w_class = false)
       <!-- Logo -->
       <div class="navbar-brand mx-lg-auto">
         <a href="/">
-          <div class="navbar-brand-bg">
-            <img src="/static/img/logo-2.svg" alt="Dreamscape Logo" />
-          </div>
+          <img src="/static/img/header_logo_mobile.svg" class="logo-mobile" alt="Dreamscape Logo">
+          <img src="/static/img/header_logo_tablet.svg" class="logo-tablet" alt="Dreamscape Logo">
+          <img src="/static/img/header_logo_desktop.svg" class="logo-desktop" alt="Dreamscape Logo">
         </a>
       </div>
+      <!-- <a class="navbar-brand" href="#">
+        <img src="/static/img/header_logo_mobile.svg" width="30" alt="">
+      </a> -->
 
       <!-- Desktop Right Nav -->
       <div class="collapse navbar-collapse" id="navRight">

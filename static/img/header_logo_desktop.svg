@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 2220 430" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g id="Large" transform="matrix(0.910582,0,0,0.465368,266.801,148.918)">
+        <rect x="-293" y="-320" width="2438" height="924" style="fill:none;"/>
+        <clipPath id="_clip1">
+            <rect x="-293" y="-320" width="2438" height="924"/>
+        </clipPath>
+        <g clip-path="url(#_clip1)">
+            <g transform="matrix(-3.76235,9.01555e-16,-4.54715e-16,-7.26527,4650.72,599.702)">
+                <path d="M1314,127.18L666,127.18L705.599,0L1274.4,0L1314,127.18Z" style="fill:rgb(235,235,235);"/>
+            </g>
+            <g transform="matrix(1.60879,0,0,3.14791,-598.002,-2544.92)">
+                <g transform="matrix(1.22289,0,0,1.22289,-39.8288,228.051)">
+                    <path d="M560.031,597L474,597L474,596.998C473.832,596.999 473.666,597 473.5,597C439.557,597 412,569.443 412,535.5C412,501.557 439.557,474 473.5,474C474.162,474 474.821,474.01 475.482,474.031C481.631,446.557 506.184,426 535.5,426C561.166,426 583.182,441.757 592.392,464.116C554.841,466.245 525,497.415 525,535.5C525,561.644 539.062,584.529 560.031,597Z" style="fill:url(#_Linear2);"/>
+                </g>
+                <g transform="matrix(1.22289,0,0,1.22289,46.996,198.702)">
+                    <circle cx="525.5" cy="559.5" r="61.5" style="fill:url(#_Linear3);"/>
+                </g>
+                <g transform="matrix(7.94689,0,0,7.94689,-5229.28,-3145.87)">
+                    <text x="757.229px" y="510.375px" style="font-family:'Nunito-Regular', 'Nunito';font-size:12px;fill:rgb(99,135,165);">DRE<tspan x="780.989px " y="510.375px ">A</tspan>MSC<tspan x="815.237px " y="510.375px ">A</tspan>PE</text>
+                </g>
+            </g>
+        </g>
+    </g>
+    <defs>
+        <linearGradient id="_Linear2" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(184.432,-184.432,184.432,184.432,436.321,585.293)"><stop offset="0" style="stop-color:rgb(19,123,255);stop-opacity:1"/><stop offset="0.58" style="stop-color:rgb(66,39,198);stop-opacity:1"/><stop offset="1" style="stop-color:rgb(88,0,171);stop-opacity:1"/></linearGradient>
+        <linearGradient id="_Linear3" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(95.256,-95.256,95.256,95.256,482.871,611.319)"><stop offset="0" style="stop-color:rgb(252,92,125);stop-opacity:1"/><stop offset="1" style="stop-color:rgb(255,127,65);stop-opacity:1"/></linearGradient>
+    </defs>
+</svg>
