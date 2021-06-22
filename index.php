@@ -90,16 +90,16 @@ $latest_posts = PostService::get_all('publish_date', 'DESC', 3);
           <h2>Socials</h2>
           <p>Join in with the community and keep updated, or show your support through patreon.</p>
           <div class="social-buttons">
-            <div class="row justify-content-center">
-              <div class="col-sm-6 col-xl-4">
+            <div class="row justify-content-center px-3 px-md-0 mb-3 mb-md-auto">
+              <div class="col-6 col-lg-4">
                 <a href="https://twitter.com/theDreamscape" target="__blank" rel="noopener"><img
                     src="/static/img/social-twitter.png" alt="Dreamscape's Twitter" /></a>
               </div>
-              <div class="col-sm-6 col-xl-4">
+              <div class="col-6 col-lg-4">
                 <a href="/external" target="__blank" rel="noopener"><img src="/static/img/social-youtube.png"
                     alt="Dreamscape's YouTube" /></a>
               </div>
-              <div class="col-sm-6 col-xl-4">
+              <div class="col-6 col-lg-4">
                 <a href="/external" target="__blank" rel="noopener"><img src="/static/img/social-patreon.png"
                     alt="Dreamscape's Patreon" /></a>
               </div>
