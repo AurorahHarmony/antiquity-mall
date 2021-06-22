@@ -18,7 +18,7 @@
 		          <li><a href="/eula">EULA</a></li>
 		        </ul>
 		      </div>
-		      <div class="col-sm-6 col-md-3">
+		      <div class="col-sm-6 col-md-3 mb-3 mb-sm-0">
 		        <ul class="list-unstyled">
 		          <li><a href="/external">Patreon</a></li>
 		          <li><a href="/external">Shop</a></li>
