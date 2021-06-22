@@ -33,8 +33,8 @@
 		      </div>
 		    </div>
 		    <hr />
-		    <div class="row">
-		      <div class="col">&copy; Harmony Link 2021</div>
+		    <div class="row text-muted">
+		      <div class="col">&copy; HLGS 2021</div>
 		      <div class="col text-end"><span class="fs-2">HLGS</span></div>
 		    </div>
 		  </div>
