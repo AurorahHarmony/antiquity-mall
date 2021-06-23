@@ -5,11 +5,13 @@ services:
     build: .
     volumes:
       - ./:/var/www/html
+    restart: always
     ports:
       - 8080:80
 
   mariadb:
     image: mariadb
+    restart: always
     environment:
       MYSQL_DATABASE: dreamscape
       MYSQL_USER: ${DB_USER}
@@ -20,6 +22,7 @@ services:
 
   phpmyadmin:
     image: phpmyadmin
+    restart: always
     ports:
       - 8081:80
     environment:
