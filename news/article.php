@@ -41,9 +41,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['new_comment']) && isse
 
 
   if (!$new_comment->has_errors()) {
+
+    $escaped_comment = strip_tags(stripslashes($new_comment->get_value('comment')));
+
     require_once(__DIR__ . '/../inc/services/Database.php');
     $db = new Database;
-    $db->insert('comments', ['post_id' => $_POST['id'], 'user_id' => $_SESSION['id'],  'comment' => $new_comment->get_value('comment')]);
+    $db->insert('comments', ['post_id' => $_POST['id'], 'user_id' => $_SESSION['id'],  'comment' => $escaped_comment]);
   }
 }
 ?>
@@ -96,7 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['new_comment']) && isse
             <p class="h6 mb-0 text-muted"><?= date_format(new DateTime($comment['created']), "(g:ia) j M, Y") ?></p>
           </div>
         </div>
-        <p class="mb-0"><?= $comment['comment'] ?></p>
+        <p class="mb-0"><?= strip_tags(stripslashes($comment['comment'])) ?></p>
       </td>
     </tr>
 
