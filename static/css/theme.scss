@@ -188,6 +188,14 @@ html {
 		margin-bottom: 3rem;
 		z-index: 50;
 	}
+	@include media-breakpoint-down(md) {
+		max-height: 75vh;
+	}
+	@include media-breakpoint-down(sm) {
+		.get-connected {
+			margin-top: 20vh;
+		}
+	}
 
 	.video-wrapper {
 		@extend .bg-dark;
