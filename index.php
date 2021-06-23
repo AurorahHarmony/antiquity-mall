@@ -32,9 +32,6 @@ $latest_posts = PostService::get_all('publish_date', 'DESC', 3);
           <?php foreach ($latest_posts as $post) : ?>
           <li class="splide__slide">
             <div class="row justify-content-center">
-              <!-- <div class="col-md-4 col-lg-3 order-md-2">
-                <div style="background-color: rgb(54, 54, 54); width: 100%; height: 200px"></div>
-              </div> -->
               <div class="col-md-8 col-lg-6 order-md-1">
                 <h2 class="mb-0"><?= $post['title'] ?></h2>
                 <span
