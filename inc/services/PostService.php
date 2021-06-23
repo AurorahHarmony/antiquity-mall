@@ -91,6 +91,10 @@ class PostService
       $form->add_error('title', 'The post must have a title');
     }
 
+    if (strlen($title) > 100) {
+      $form->add_error('title', 'The title should be 100 characters or less');
+    }
+
     if (empty($excerpt)) {
       $form->add_error('excerpt', 'The excerpt cannot be empty');
     }
