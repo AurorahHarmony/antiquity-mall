@@ -27,11 +27,11 @@ $all_posts = PostService::get_all(); ?>
       <td class="text-muted text-end"><?= date_format(new DateTime($post['publish_date']), "g:ia - j/m/Y")  ?>
       </td>
       <td class="text-end">
-        <a href="/news/article?id=<?= $post['id'] ?>" class="mx-1" title="View"><i
+        <a href="/news/article?id=<?= $post['id'] ?>" class="mx-1 mb-3 mb-sm-0 d-block d-sm-inline" title="View"><i
             class="bi bi-eye text-success"></i></a>
-        <a href="/manage/posts/edit?id=<?= $post['id'] ?>" class="mx-1" title="Edit"><i
+        <a href="/manage/posts/edit?id=<?= $post['id'] ?>" class="mx-1 mb-3 mb-sm-0 d-block d-sm-inline" title="Edit"><i
             class="bi bi-pencil-square text-info"></i></a>
-        <a href="/manage/posts/delete?id=<?= $post['id'] ?>" class="mx-1" title="Delete"><i
+        <a href="/manage/posts/delete?id=<?= $post['id'] ?>" class="mx-1 d-block d-sm-inline" title="Delete"><i
             class="bi bi-trash text-danger"></i></a>
       </td>
     </tr>
