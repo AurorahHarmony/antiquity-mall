@@ -54,7 +54,8 @@ $uri = new URI;
 
           </li>
           <li class="mb-1">
-            <button class="btn align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#news-collapse"
+            <button class="btn align-items-center rounded  text-start" data-bs-toggle="collapse"
+              data-bs-target="#news-collapse"
               aria-expanded="<?= $uri->matches(['/manage/posts', '/manage/posts/new'], 'true', 'false') ?>">
               <i class="bi bi-caret-right-fill btn-toggle"></i> News
             </button>
@@ -67,7 +68,8 @@ $uri = new URI;
             </div>
           </li>
           <li class="mb-1">
-            <button class="btn align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#users-collapse"
+            <button class="btn align-items-center rounded text-start" data-bs-toggle="collapse"
+              data-bs-target="#users-collapse"
               aria-expanded="<?= $uri->matches(['/manage/users', '/manage/users/edit-roles'], 'true', 'false') ?>">
               <i class="bi bi-caret-right-fill btn-toggle"></i> User Management
             </button>
@@ -80,7 +82,7 @@ $uri = new URI;
             </div>
           </li>
           <li class="mb-1">
-            <button class="btn align-items-center rounded" data-bs-toggle="collapse"
+            <button class="btn align-items-center rounded text-start" data-bs-toggle="collapse"
               data-bs-target="#downloads-collapse"
               aria-expanded="<?= $uri->matches(['/manage/downloads/windows', '/manage/downloads/mac'], 'true', 'false') ?>">
               <i class="bi bi-caret-right-fill btn-toggle"></i> Download Management

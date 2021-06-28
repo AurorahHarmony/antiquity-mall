@@ -33,7 +33,11 @@ INSERT INTO permissions (perm_name, perm_description)
 VALUES
   ("LOGIN", "The User can Login"),
   ("MANAGE_POSTS", "Create, Update or Delete Posts"),
-  ("MANAGE_USERS", "Ban, Edit or Delete Users")
+  ("MANAGE_USERS", "Ban, Edit or Delete Users"),
+  ("ACCESS_MANAGER", "Should the user be able to access the management page?"),
+  ("MANAGE_ROLES", "Can the user alter role permissions?"),
+  ("MANAGE_DOWNLOADS", "Update and Change the available version downloads"),
+  ("COMMENT", "Can the User post comments on news articles")
 ;
 
 INSERT INTO roles (role_name)

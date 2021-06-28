@@ -101,34 +101,34 @@ $active_version = $active_version[0] ?? null;
 </form>
 
 <p class="h2">All Mac Versions</p>
+<div class="table-responsive">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Version</th>
+        <th scope="col">File Name</th>
+        <th scope="col" class="text-end">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th scope="col">Version</th>
-      <th scope="col">File Name</th>
-      <th scope="col" class="text-end">Actions</th>
-    </tr>
-  </thead>
-  <tbody>
+      <?php foreach ($all_uploaded as $upload) : ?>
 
-    <?php foreach ($all_uploaded as $upload) : ?>
+      <tr>
+        <th scope="row"><?= $upload['version_number'] ?></th>
 
-    <tr>
-      <th scope="row"><?= $upload['version_number'] ?></th>
+        <td><?= $upload['file_name'] ?></td>
+        <td class="text-end">
+          <a href="<?= '/uploads/' . $upload['file_name'] ?>" class="mx-1" title="Download"><i
+              class="bi bi-download text-info"></i></a>
+        </td>
+      </tr>
 
-      <td><?= $upload['file_name'] ?></td>
-      <td class="text-end">
-        <a href="<?= '/uploads/' . $upload['file_name'] ?>" class="mx-1" title="Download"><i
-            class="bi bi-download text-info"></i></a>
-        <!-- <a href="#" class="mx-1" title="Edit"><i class="bi bi-pencil-square text-info"></i></a> -->
-      </td>
-    </tr>
+      <?php endforeach; ?>
 
-    <?php endforeach; ?>
-
-  </tbody>
-</table>
+    </tbody>
+  </table>
+</div>
 
 
 <?php require_once(__DIR__ . '/../../inc/templates/manage/end.php'); ?>

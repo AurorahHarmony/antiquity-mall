@@ -7,7 +7,7 @@ $tab_name = $tab_name ?? 'account';
     <h1>Account</h1>
     <div class="row">
       <div class="col-md-4 col-lg-3">
-        <ul class="nav nav-pills flex-column">
+        <ul class="nav nav-pills flex-column mb-3 mb-md-0">
           <li class="nav-item">
             <a href="/account" class="nav-link <?php echo ($tab_name == 'account') ? 'active' : '' ?>">
               <i class="bi bi-house-fill"></i> Account Home
